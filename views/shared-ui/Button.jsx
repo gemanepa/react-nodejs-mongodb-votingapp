@@ -1,11 +1,5 @@
-import React from 'react'
-import { css } from 'emotion'
-
-const Button = () => (
-    <button className={buttonCSS}>
-        Hover to change color.
-    </button>
-)
+import React from 'react';
+import { css } from 'emotion';
 
 const buttonCSS = css`
     padding: 32px;
@@ -14,6 +8,13 @@ const buttonCSS = css`
     border-radius: 4px;
     &:hover {
     color: white;
-}`
+}`;
 
-export default Button
+
+export default function Button() {
+  return (
+    <button type="button" className={buttonCSS}>
+        Hover to change color.
+    </button>
+  );
+}
