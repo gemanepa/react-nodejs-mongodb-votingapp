@@ -20,7 +20,8 @@ app.use(httpLogger('dev'));
 
   app.listen(3000, () => {
     log('header', 'RUNNING APPLICATION ON PORT 3000')
-    log('info', 'View Handler: React')
+    log('info', 'View Logic Handler: React')
+    log('info', 'View Styles Handler: Emotion')
     log('info', 'View Template Engine: JSX')
     log('info', 'HTTP Requests Logs: Morgan')
     log('info', 'App Logs: Chalk')
