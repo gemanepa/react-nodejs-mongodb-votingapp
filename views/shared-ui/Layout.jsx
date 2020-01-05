@@ -22,7 +22,7 @@ export default function Layout(props) {
     <html lang="es-AR">
       <head>
         <meta charSet="utf-8" />
-        <title>{ title }</title>
+        <title>{`Votacion - ${title}`}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={bodyCSS}>
