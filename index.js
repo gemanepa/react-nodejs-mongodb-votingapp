@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(httpLogger('dev'));
-
+app.use(express.static('public'));
 
 (async () => {
   // register `.jsx` or `.tsx` as a view template engine

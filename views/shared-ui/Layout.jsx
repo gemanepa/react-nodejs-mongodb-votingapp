@@ -3,10 +3,17 @@ import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
 const bodyCSS = css`
-  background-color: lightblue;
-  width: 100%;
+  min-width: 100%;
   max-width: 100%;
+  min-height: 100vh;
+  height: auto;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background-image: url("./images/home-wallpaper.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 export default function Layout(props) {

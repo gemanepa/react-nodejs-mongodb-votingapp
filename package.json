@@ -5,8 +5,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "lint": "eslint routes/*.js && eslint utils/*.js && eslint views/*.jsx && eslint app.js"
+    "build": "webpack --mode production",
+    "start": "node index.js",
+    "lint": "eslint src/routes/*.js && eslint src/utils/*.js && eslint src/views/*.jsx && eslint app.js"
   },
   "license": "ISC",
   "dependencies": {
