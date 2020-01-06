@@ -6,33 +6,44 @@ export default function Button(props) {
   const { nonDefaultCss, text, withLink } = props;
 
   const buttonCSS = css`
-    padding: 32px;
     background-color: darkblue;
     font-size: 24px;
     border-radius: 4px;
-    width: 100%;
     cursor: pointer;
     color: white;
+    height: 100px;
+    text-decoration: none;
+    text-align: center;
+    margin: auto;
     ${nonDefaultCss}
+    p {
+      font-size: 34px;
+    }
     &:hover {
       text-decoration: underline;
+    }
+    @media (max-width: 1199px) {
+      width: 90%;
+      p {
+        margin-top: 9.5%;
+      }
+    }
+    @media (min-width: 1200px) {
+      width: 50%;
+      p {
+        margin-top: 4.5%;
+        font-size: 34px;
+      }
     }`;
 
-  const linkCSS = css`
-    color: white;
-    text-decoration: none;
-  `;
-
   return (
-    <button type="button" className={buttonCSS}>
-      {withLink
-        ? (
-          <a href={withLink} className={linkCSS}>
-            {text}
-          </a>
-        )
-        : text}
-    </button>
+    <>
+      { !withLink
+        ? <button type="button" className={buttonCSS}>{text}</button>
+        : (
+          <a href={withLink} className={buttonCSS}><p>{text}</p></a>
+        )}
+    </>
   );
 }
 

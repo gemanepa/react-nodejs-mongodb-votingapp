@@ -12,6 +12,7 @@ const formCSS = css`
     label {
         width: 100%;
     }
+
     input[type=text], input[type=number] {
         width: 100%;
         padding: 12px 20px;

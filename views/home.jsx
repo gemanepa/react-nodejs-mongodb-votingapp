@@ -8,19 +8,20 @@ import Button from './shared-ui/Button';
 export default function Home(props) {
   const { pageName } = props;
   const mainCSS = css`
-  display: block;
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
-  width: 50%;
-  height: 100%
+  height: 100%;
+  @media (max-width: 1199px) {
+    padding-top: 40vh;
+  }
+  @media (min-width: 1200px) {
+    padding-top: 30%;
+  }
   `;
 
   const buttonCSS = css`
-  @media (max-width: 1199px) {
-    margin-top: 40vh;
-  }
-  @media (min-width: 1200px) {
-    margin-top: 60%;
-  }
+
 `;
   return (
     <Layout title={pageName}>
