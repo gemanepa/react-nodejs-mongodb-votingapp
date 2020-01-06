@@ -2,7 +2,8 @@ const express = require('express');
 const register = require('@react-ssr/express/register');
 const httpLogger = require('morgan');
 const log = require('./utils/consoleMessage');
-const indexRouter = require('./routes/index');
+const homeRouter = require('./routes/home');
+const voterdataRouter = require('./routes/voter-data');
 const usersRouter = require('./routes/users');
 
 const app = express();
@@ -15,7 +16,8 @@ app.use(express.static('public'));
   // register `.jsx` or `.tsx` as a view template engine
   await register(app);
 
-  app.use('/', indexRouter);
+  app.use('/', homeRouter);
+  app.use('/voter-data', voterdataRouter);
   app.use('/users', usersRouter);
 
   app.listen(3000, () => {

@@ -22,6 +22,7 @@ module.exports = {
     'react',
   ],
   rules: {
-    "comma-dangle": ["error", "never"]
+    "comma-dangle": ["error", "never"],
+    "default-case": 'off'
   },
 };

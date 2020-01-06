@@ -1,11 +1,12 @@
 import React from 'react';
-import { css } from 'emotion';
 import PropTypes from 'prop-types';
+import { css } from 'emotion';
 import Layout from './shared-ui/Layout';
 import Button from './shared-ui/Button';
 
 
-export default function Index() {
+export default function Home(props) {
+  const { pageName } = props;
   const mainCSS = css`
   display: block;
   margin: 0 auto;
@@ -22,14 +23,14 @@ export default function Index() {
   }
 `;
   return (
-    <Layout title="Home">
+    <Layout title={pageName}>
       <main className={mainCSS}>
-        <Button withLink="/votacion" text="Votar" nonDefaultCss={buttonCSS} />
+        <Button withLink="/voter-data" text="Iniciar" nonDefaultCss={buttonCSS} />
       </main>
     </Layout>
   );
 }
 
-Index.propTypes = {
-  message: PropTypes.string.isRequired
+Home.propTypes = {
+  pageName: PropTypes.string.isRequired
 };

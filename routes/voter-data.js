@@ -2,10 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-/* GET home page. */
+/* GET voter-data page. */
 router.get('/', (req, res) => {
-  const message = 'Hello World!';
-  res.render('index', { message });
+  const pageName = 'Voter Data';
+  res.render('voter-data', { pageName });
 });
 
 module.exports = router;
