@@ -4,6 +4,7 @@ import { css } from 'emotion';
 import Layout from './shared-ui/Layout';
 import Form from './shared-ui/Form';
 
+
 export default function VoterData(props) {
   const { pageName } = props;
   const mainCSS = css`

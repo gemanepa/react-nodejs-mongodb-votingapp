@@ -4,6 +4,7 @@ const httpLogger = require('morgan');
 const log = require('./utils/consoleMessage');
 const homeRouter = require('./routes/home');
 const voterdataRouter = require('./routes/voter-data');
+const votersRouter = require('./routes/voters');
 const usersRouter = require('./routes/users');
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.static('public'));
 
   app.use('/', homeRouter);
   app.use('/voter-data', voterdataRouter);
+  app.use('/voters', votersRouter);
   app.use('/users', usersRouter);
 
   app.listen(3000, () => {

@@ -100,8 +100,24 @@ function validationHandler(error) {
 export default function Form() {
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
-    console.log(errors);
-    console.log(data);
+    // dni: "34898769"
+    // firstName: "Gabriel Ernesto"
+    // gender: "male"
+    // lastName: "Martinez Canepa"
+
+    var myHeaders = new Headers();
+    myHeaders.append('x-dni', data.dni);
+    var myInit = { method: 'GET',
+                   headers: myHeaders,
+                   mode: 'cors',
+                   cache: 'default' };
+    
+    var myRequest = new Request('/voters', myInit);
+    
+    fetch(myRequest)
+    .then(function(response) {
+      return console.log(response)
+    })
   };
 
   return (
