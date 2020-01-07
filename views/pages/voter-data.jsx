@@ -9,11 +9,12 @@ const mainCSS = css`
 display: block;
 margin: 0 auto;
 width: 50%;
-height: 100%;
+min-height: 100%;
+height: auto;
 border-radius: 5px;
 background-color: #f2f2f2;
 padding: 20px;
-margin-top: 5.5vh;
+margin-top: 1.5vh;
 @media (max-width: 1199px) {
   width: 80%;;
 }
@@ -38,7 +39,7 @@ export default function VoterData(props) {
   };
 
   return (
-    <Layout title="Voter Data">
+    <Layout title="Voter Data" navbar="votar" setPage={setPage}>
       <main className={mainCSS}>
         <h1>Datos del votante</h1>
         <Form validateVoterData={validateVoterData} />

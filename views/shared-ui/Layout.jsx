@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
+import NavBar from './Navbar';
 
 const bodyCSS = css`
   min-width: 100%;
   max-width: 100%;
   min-height: 100vh;
   height: auto;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding: 0;
   margin: 0;
   background-image: url("./images/home-wallpaper.jpg");
@@ -17,7 +19,7 @@ const bodyCSS = css`
 `;
 
 export default function Layout(props) {
-  const { children, title } = props;
+  const { children, title, navbar, setPage } = props;
   return (
     <html lang="es-AR">
       <head>
@@ -27,6 +29,7 @@ export default function Layout(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={bodyCSS}>
+        <NavBar activePage={navbar} setPage={setPage} />
         { children }
       </body>
     </html>

@@ -20,13 +20,10 @@ export default function Home(props) {
   }
   `;
 
-  const buttonCSS = css`
-
-`;
   return (
-    <Layout title="Home">
+    <Layout title="Home" navbar="home" setPage={setPage}>
       <main className={mainCSS}>
-        <Button text="Iniciar" nonDefaultCss={buttonCSS} setPage={setPage} />
+        <Button text="Iniciar" setPage={setPage} />
       </main>
     </Layout>
   );
