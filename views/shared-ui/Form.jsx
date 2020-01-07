@@ -97,27 +97,10 @@ function validationHandler(error) {
   return message;
 }
 
-export default function Form() {
+export default function Form(props) {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
-    // dni: "34898769"
-    // firstName: "Gabriel Ernesto"
-    // gender: "male"
-    // lastName: "Martinez Canepa"
-
-    var myHeaders = new Headers();
-    myHeaders.append('x-dni', data.dni);
-    var myInit = { method: 'GET',
-                   headers: myHeaders,
-                   mode: 'cors',
-                   cache: 'default' };
-    
-    var myRequest = new Request('/voters', myInit);
-    
-    fetch(myRequest)
-    .then(function(response) {
-      return console.log(response)
-    })
+  const onSubmit = async (submittedData) => {
+    props.validateVoterData(submittedData);
   };
 
   return (

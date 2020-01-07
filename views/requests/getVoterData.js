@@ -1,0 +1,16 @@
+export default async function (submittedData, setParentState) {
+  const requestHeaders = new Headers();
+  requestHeaders.append('x-dni', submittedData.dni);
+
+  const requestConfig = {
+    method: 'GET',
+    headers: requestHeaders,
+    mode: 'cors',
+    cache: 'default'
+  };
+
+  const request = new Request('/voters', requestConfig);
+
+  const responseData = await fetch(request).then((response) => response.json()).then((data) => data);
+  setParentState(responseData);
+}
