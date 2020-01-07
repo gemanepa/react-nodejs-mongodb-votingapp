@@ -2,10 +2,8 @@ const express = require('express');
 const register = require('@react-ssr/express/register');
 const httpLogger = require('morgan');
 const log = require('./utils/consoleMessage');
-const homeRouter = require('./routes/home');
-const voterdataRouter = require('./routes/voter-data');
+const viewsRouter = require('./routes/views');
 const votersRouter = require('./routes/voters');
-const usersRouter = require('./routes/users');
 
 const app = express();
 app.use(express.json());
@@ -17,10 +15,8 @@ app.use(express.static('public'));
   // register `.jsx` or `.tsx` as a view template engine
   await register(app);
 
-  app.use('/', homeRouter);
-  app.use('/voter-data', voterdataRouter);
+  app.use('/', viewsRouter);
   app.use('/voters', votersRouter);
-  app.use('/users', usersRouter);
 
   app.listen(3000, () => {
     log('header', 'RUNNING APPLICATION ON PORT 3000');

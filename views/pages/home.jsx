@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
-import Layout from './shared-ui/Layout';
-import Button from './shared-ui/Button';
+import Layout from '../shared-ui/Layout';
+import Button from '../shared-ui/Button';
 
 
 export default function Home(props) {
-  const { pageName } = props;
+  const { setPage } = props;
   const mainCSS = css`
   display: flex;
   justify-content: center;
@@ -24,9 +24,9 @@ export default function Home(props) {
 
 `;
   return (
-    <Layout title={pageName}>
+    <Layout title="Home">
       <main className={mainCSS}>
-        <Button withLink="/voter-data" text="Iniciar" nonDefaultCss={buttonCSS} />
+        <Button text="Iniciar" nonDefaultCss={buttonCSS} setPage={setPage} />
       </main>
     </Layout>
   );

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
-import Layout from './shared-ui/Layout';
-import Form from './shared-ui/Form';
-import getVoterDbData from './requests/getVoterData';
+import Layout from '../shared-ui/Layout';
+import Form from '../shared-ui/Form';
+import getVoterDbData from '../requests/getVoterData';
 
 const mainCSS = css`
 display: block;
@@ -23,16 +23,26 @@ margin-top: 5.5vh;
 `;
 
 export default function VoterData(props) {
-  const { pageName } = props;
-  const [voterDbData, setVoterDbData] = useState(undefined);
+  const { setPage, setVoterData } = props;
+  const [alreadyVoted, setAlreadyVoted] = useState(false);
 
-  const validateVoterData = async (submittedData) => getVoterDbData(submittedData, setVoterDbData);
-  console.log('voterDbData ', voterDbData);
+  const validateVoterData = async function (submittedData) {
+    const voterData = await getVoterDbData(submittedData);
+
+    if (!voterData.dni) {
+      setVoterData(submittedData);
+      setPage('home');
+    } else if (voterData.dni) {
+      setAlreadyVoted(true);
+    }
+  };
+
   return (
-    <Layout title={pageName}>
+    <Layout title="Voter Data">
       <main className={mainCSS}>
         <h1>Datos del votante</h1>
         <Form validateVoterData={validateVoterData} />
+        {alreadyVoted && <h1>Ya voto</h1>}
       </main>
     </Layout>
   );

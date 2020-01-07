@@ -1,4 +1,4 @@
-export default async function (submittedData, setParentState) {
+export default async function (submittedData) {
   const requestHeaders = new Headers();
   requestHeaders.append('x-dni', submittedData.dni);
 
@@ -12,5 +12,5 @@ export default async function (submittedData, setParentState) {
   const request = new Request('/voters', requestConfig);
 
   const responseData = await fetch(request).then((response) => response.json()).then((data) => data);
-  setParentState(responseData);
+  return responseData;
 }

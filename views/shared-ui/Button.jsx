@@ -3,7 +3,7 @@ import { css } from 'emotion';
 import PropTypes from 'prop-types';
 
 export default function Button(props) {
-  const { nonDefaultCss, text, withLink } = props;
+  const { nonDefaultCss, text, setPage } = props;
 
   const buttonCSS = css`
     background-color: darkblue;
@@ -37,23 +37,15 @@ export default function Button(props) {
     }`;
 
   return (
-    <>
-      { !withLink
-        ? <button type="button" className={buttonCSS}>{text}</button>
-        : (
-          <a href={withLink} className={buttonCSS}><p>{text}</p></a>
-        )}
-    </>
+    <button type="button" className={buttonCSS} onClick={() => setPage('voterdata')}>{text}</button>
   );
 }
 
 Button.defaultProps = {
-  nonDefaultCss: '',
-  withLink: undefined
+  nonDefaultCss: ''
 };
 
 Button.propTypes = {
   nonDefaultCss: PropTypes.string,
-  text: PropTypes.string.isRequired,
-  withLink: PropTypes.string
+  text: PropTypes.string.isRequired
 };
