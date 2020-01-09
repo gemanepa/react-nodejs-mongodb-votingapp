@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
-import Layout from '../shared-ui/Layout';
-import Button from '../shared-ui/Button';
+import Layout from '../../shared-ui/Layout';
+import Button from './Button';
 
 
 export default function Home(props) {

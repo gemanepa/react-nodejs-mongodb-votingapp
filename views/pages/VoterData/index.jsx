@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
-import Layout from '../shared-ui/Layout';
-import Form from '../shared-ui/Form';
-import Snackbar from '../shared-ui/Snackbar';
-import getVoterDbData from '../requests/getVoterData';
+import Layout from '../../shared-ui/Layout';
+import Form from './Form';
+import Snackbar from './Snackbar';
+import getVoterDbData from '../../requests/getVoterData';
 
 const mainCSS = css`
 display: block;

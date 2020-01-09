@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Home from './pages/home';
-import VoterData from './pages/voter-data';
-import Candidates from './pages/candidates';
+import Home from './pages/Home';
+import VoterData from './pages/VoterData';
+import Candidates from './pages/Candidates';
 
 export default function Index() {
   const [page, setPage] = useState('home');

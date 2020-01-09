@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
-import Layout from '../shared-ui/Layout';
+import Layout from '../../shared-ui/Layout';
 
 const mainCSS = css`
 display: block;
