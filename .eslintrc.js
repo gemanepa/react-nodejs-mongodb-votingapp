@@ -23,6 +23,8 @@ module.exports = {
   ],
   rules: {
     "comma-dangle": ["error", "never"],
-    "default-case": 'off'
+    "default-case": 'off',
+    "func-names": 'off',
+    "react/jsx-no-bind": 'off'
   },
 };

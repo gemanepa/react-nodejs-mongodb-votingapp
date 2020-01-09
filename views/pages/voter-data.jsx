@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { css } from 'emotion';
 import Layout from '../shared-ui/Layout';
 import Form from '../shared-ui/Form';
+import Snackbar from '../shared-ui/Snackbar';
 import getVoterDbData from '../requests/getVoterData';
 
 const mainCSS = css`
@@ -35,6 +36,7 @@ export default function VoterData(props) {
       setPage('home');
     } else if (voterData.dni) {
       setAlreadyVoted(true);
+      setTimeout(() => { setAlreadyVoted(false); }, 3000);
     }
   };
 
@@ -43,7 +45,7 @@ export default function VoterData(props) {
       <main className={mainCSS}>
         <h1>Datos del votante</h1>
         <Form validateVoterData={validateVoterData} />
-        {alreadyVoted && <h1>Ya voto</h1>}
+        {alreadyVoted && <Snackbar text="Este votante ya voto" />}
       </main>
     </Layout>
   );
