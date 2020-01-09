@@ -9,7 +9,7 @@ export default async function (submittedData) {
     cache: 'default'
   };
 
-  const request = new Request('/voters', requestConfig);
+  const request = new Request('/voter', requestConfig);
 
   const responseData = await fetch(request).then((response) => response.json()).then((data) => data);
   return responseData;

@@ -3,7 +3,7 @@ const register = require('@react-ssr/express/register');
 const httpLogger = require('morgan');
 const log = require('./utils/consoleMessage');
 const viewsRouter = require('./routes/views');
-const votersRouter = require('./routes/voters');
+const voterRouter = require('./routes/voter');
 
 const app = express();
 app.use(express.json());
@@ -16,7 +16,7 @@ app.use(express.static('public'));
   await register(app);
 
   app.use('/', viewsRouter);
-  app.use('/voters', votersRouter);
+  app.use('/voter', voterRouter);
 
   app.listen(3000, () => {
     log('header', 'RUNNING APPLICATION ON PORT 3000');
@@ -25,8 +25,8 @@ app.use(express.static('public'));
     log('info', 'View Template Engine: JSX');
     log('info', 'HTTP Requests Logs: Morgan');
     log('info', 'App Logs: Chalk');
-    log('header', 'PATHS', true);
+    log('header', 'ENDPOINTS', true);
     log('info', '/');
-    log('info', '/users');
+    log('info', '/voter');
   });
 })();

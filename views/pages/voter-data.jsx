@@ -33,7 +33,8 @@ export default function VoterData(props) {
 
     if (!voterData.dni) {
       setVoterData(submittedData);
-      setPage('home');
+      setPage('candidates');
+      console.log('voterData ', voterData)
     } else if (voterData.dni) {
       setAlreadyVoted(true);
       setTimeout(() => { setAlreadyVoted(false); }, 3000);

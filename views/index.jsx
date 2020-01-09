@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import Home from './pages/home';
 import VoterData from './pages/voter-data';
+import Candidates from './pages/candidates';
 
 export default function Index() {
   const [page, setPage] = useState('home');
@@ -10,7 +10,8 @@ export default function Index() {
   function renderPage() {
     const pages = {
       home: <Home setPage={setPage} />,
-      voterdata: <VoterData setPage={setPage} setVoterData={setVoterData} />
+      voterdata: <VoterData setPage={setPage} setVoterData={setVoterData} />,
+      candidates: <Candidates setPage={setPage} />,
     };
     return pages[page];
   }

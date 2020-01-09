@@ -2,10 +2,10 @@ const express = require('express');
 
 const router = express.Router();
 
-/* GET voters */
+/* GET voter */
 router.get('/', (req, res) => {
   console.log(req.headers['x-dni']);
-  res.json({ dni: true });
+  res.json({ dni: false });
 });
 
 module.exports = router;
