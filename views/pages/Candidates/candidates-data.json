@@ -1,0 +1,29 @@
+{
+    "candidates": [
+        {
+            "name": "Daenerys",
+            "house": "Targaryen",
+            "img": "daenerys.jpg"
+        },
+        {
+            "name": "Jon Snow",
+            "house": "Stark",
+            "img": "daenerys.jpg"
+        },
+        {
+            "name": "Tyrion",
+            "house": "Lannister",
+            "img": "daenerys.jpg"
+        },
+        {
+            "name": "Sansa",
+            "house": "Stark",
+            "img": "daenerys.jpg"
+        },
+        {
+            "name": "Cersei",
+            "house": "Lannister",
+            "img": "daenerys.jpg"
+        }
+    ]
+}
