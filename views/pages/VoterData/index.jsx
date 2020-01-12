@@ -4,7 +4,7 @@ import { css } from 'emotion';
 import Layout from '../../shared-ui/Layout';
 import Form from './Form';
 import Snackbar from '../../shared-ui/Snackbar';
-import getVoterDbData from '../../requests/getVoterData';
+import getVoterDbData from '../../requests/getVoter';
 
 const mainCSS = css`
 display: block;

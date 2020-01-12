@@ -4,7 +4,7 @@ import { css } from 'emotion';
 import Layout from '../../shared-ui/Layout';
 import List from './List';
 import Modal from './Modal';
-import postVote from '../../requests/postVote';
+import postVoterDbData from '../../requests/postVote';
 
 const mainCSS = css`
 display: block;
@@ -34,8 +34,7 @@ export default function Candidates(props) {
   function dataConfirmed(data) {
     const postReqData = data;
     delete postReqData.candidate.img;
-    console.log('data ', data);
-    postVote(data);
+    postVoterDbData(data);
   }
 
   function selectCanceled() {
