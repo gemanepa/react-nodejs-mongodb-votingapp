@@ -35,14 +35,14 @@ ul.topnav {
 
 export default function Navbar(props) {
   const { activePage, setPage } = props;
-  const navpages = ['home', 'votar', 'estadisticas'];
+  const navpages = ['home', 'votar', 'statistics'];
 
   return (
     <div className={navbarCSS}>
       <ul className="topnav">
         <li><a className={activePage === navpages[0] && 'active'} onClick={() => setPage('home')}>Home</a></li>
         <li><a className={activePage === navpages[1] && 'active'} onClick={() => setPage('voterdata')}>Votar</a></li>
-        <li><a className={activePage === navpages[2] && 'active'} onClick={() => setPage('home')}>Estadisticas</a></li>
+        <li><a className={activePage === navpages[2] && 'active'} onClick={() => setPage('statistics')}>Estadisticas</a></li>
         <li className="right"><a>Gabriel E. Martínez Cánepa</a></li>
       </ul>
     </div>

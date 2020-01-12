@@ -1,16 +1,14 @@
-export default async function (submittedData) {
-  const requestHeaders = new Headers();
-  requestHeaders.append('x-dni', submittedData.dni);
-
-  const requestConfig = {
+export default async function (requestData) {
+  const response = await fetch('/voter', {
     method: 'GET',
-    headers: requestHeaders,
+    headers: {
+      'Content-Type': 'application/json',
+      'x-dni': requestData.dni
+    },
     mode: 'cors',
     cache: 'default'
-  };
-
-  const request = new Request('/voter', requestConfig);
-
-  const responseData = await fetch(request).then((response) => response.json()).then((data) => data);
-  return responseData;
+  }).then((res) => res.json())
+    .catch((error) => error)
+    .then((resJson) => resJson);
+  return response;
 }

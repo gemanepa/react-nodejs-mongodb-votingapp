@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 import Layout from '../../shared-ui/Layout';
+import Snackbar from '../../shared-ui/Snackbar';
 import List from './List';
 import Modal from './Modal';
 import postVoterDbData from '../../requests/postVote';
@@ -26,19 +27,27 @@ margin-top: 1.5vh;
 export default function Candidates(props) {
   const { setPage, voterData } = props;
   const [modal, setModal] = useState({ opened: false, data: null });
+  const [voted, setVoted] = useState(false);
+  const [snackbar, setSnackbar] = useState(null);
 
   function onCandidateSelect(selectedCandidate) {
-    setModal({ opened: true, data: { voterData, selectedCandidate} });
+    setModal({ opened: true, data: { voterData, selectedCandidate } });
   }
 
-  function dataConfirmed(data) {
+  function closeModal() {
+    setModal({ opened: false, data: null });
+  }
+
+  async function dataConfirmed(data) {
     const postReqData = data;
     delete postReqData.candidate.img;
-    postVoterDbData(data);
-  }
-
-  function selectCanceled() {
-    setModal({ opened: false, data: null });
+    const request = await postVoterDbData(data);
+    closeModal();
+    setSnackbar(request.success);
+    setVoted(true);
+    setTimeout(() => {
+      setPage('statistics');
+    }, 2500);
   }
 
   return (
@@ -47,15 +56,17 @@ export default function Candidates(props) {
         <h1>Seleccionar candidato al trono</h1>
         <List onCandidateSelect={onCandidateSelect} />
 
-        {modal.opened
+        {(modal.opened && !voted)
         && (
         <Modal
           data={modal.data}
           dataConfirmed={dataConfirmed}
-          selectCanceled={selectCanceled}
+          closeModal={closeModal}
         />
         )}
 
+        {snackbar === true && <Snackbar text="Voto realizado con exito" />}
+        {snackbar === false && <Snackbar text="Voto no realizado" />}
       </main>
     </Layout>
   );

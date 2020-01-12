@@ -70,7 +70,7 @@ background-color: green;
 `;
 
 export default function Modal(props) {
-  const { data, dataConfirmed, selectCanceled } = props;
+  const { data, dataConfirmed, closeModal } = props;
   const { voterData: voter, selectedCandidate: candidate } = data;
 
   return (
@@ -118,7 +118,7 @@ export default function Modal(props) {
           </h3>
         </div>
         <div className="flex buttons">
-          <Button text="Cancelar" click={() => selectCanceled()} nonDefaultCss={cancelButtonCSS} />
+          <Button text="Cancelar" click={() => closeModal()} nonDefaultCss={cancelButtonCSS} />
           <Button text="Confirmar" click={() => dataConfirmed({ voter, candidate })} nonDefaultCss={confirmButtonCSS} />
         </div>
 
