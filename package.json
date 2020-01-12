@@ -17,6 +17,7 @@
     "chalk": "^3.0.0",
     "emotion": "^10.0.27",
     "express": "^4.17.1",
+    "mongodb": "^3.4.1",
     "morgan": "^1.9.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
