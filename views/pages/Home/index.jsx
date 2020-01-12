@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 import Layout from '../../shared-ui/Layout';
-import Button from './Button';
+import Button from '../../shared-ui/Button';
 
 
 export default function Home(props) {
@@ -20,10 +20,16 @@ export default function Home(props) {
   }
   `;
 
+  const buttonCSS = css`
+    height: 100px;
+    font-size: 24px;
+    background-color: darkblue;
+  `;
+
   return (
     <Layout title="Home" navbar="home" setPage={setPage}>
       <main className={mainCSS}>
-        <Button text="Iniciar" setPage={setPage} />
+        <Button text="Iniciar" click={setPage} nonDefaultCss={buttonCSS} />
       </main>
     </Layout>
   );

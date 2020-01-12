@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { css } from 'emotion';
 import Layout from '../../shared-ui/Layout';
 import Form from './Form';
-import Snackbar from './Snackbar';
+import Snackbar from '../../shared-ui/Snackbar';
 import getVoterDbData from '../../requests/getVoterData';
 
 const mainCSS = css`
@@ -17,7 +17,7 @@ background-color: #f2f2f2;
 padding: 20px;
 margin-top: 1.5vh;
 @media (max-width: 1199px) {
-  width: 80%;;
+  width: 80%;
 }
 @media (min-width: 1200px) {
   width: 50%;

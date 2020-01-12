@@ -11,7 +11,7 @@ export default function Index() {
     const pages = {
       home: <Home setPage={setPage} />,
       voterdata: <VoterData setPage={setPage} setVoterData={setVoterData} />,
-      candidates: <Candidates setPage={setPage} />,
+      candidates: <Candidates setPage={setPage} voterData={voterData} />
     };
     return pages[page];
   }

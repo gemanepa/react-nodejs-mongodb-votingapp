@@ -8,6 +8,7 @@ display: flex;
 flex-flow: row wrap;
 justify-content: space-around;
 width: 100%;
+padding-left: 0px;
 .candidate {
     display: flex;
     flex-direction: row;
@@ -48,17 +49,18 @@ width: 100%;
   }
 `;
 
-export default function List() {
+export default function List(props) {
+  const { onCandidateSelect } = props;
   return (
     <ul className={listCSS}>
       {data.candidates.map((candidate) => (
-        <li className="candidate" key={candidate.name} onClick={() => alert('Clicked')} title={`Seleccionar ${candidate.name}`}>
+        <li className="candidate" key={candidate.name} onClick={() => onCandidateSelect({ name: candidate.name, house: candidate.house, img: candidate.img })} title={`Seleccionar ${candidate.name}`}>
           <img src={`./images/candidate-${candidate.img}`} alt="" />
           <div className="text">
             <span className="name">{candidate.name}</span>
             <br />
             <span className="house">
-             {`House ${candidate.house}`}
+              {`House ${candidate.house}`}
             </span>
           </div>
         </li>

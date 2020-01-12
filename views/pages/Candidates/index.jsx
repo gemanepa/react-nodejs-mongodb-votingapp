@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { css } from 'emotion';
 import Layout from '../../shared-ui/Layout';
 import List from './List';
+import Modal from './Modal';
+import postVote from '../../requests/postVote';
 
 const mainCSS = css`
 display: block;
@@ -22,13 +24,39 @@ margin-top: 1.5vh;
 `;
 
 export default function Candidates(props) {
-  const { setPage, setVoterData } = props;
+  const { setPage, voterData } = props;
+  const [modal, setModal] = useState({ opened: false, data: null });
+
+  function onCandidateSelect(selectedCandidate) {
+    setModal({ opened: true, data: { voterData, selectedCandidate} });
+  }
+
+  function dataConfirmed(data) {
+    const postReqData = data;
+    delete postReqData.candidate.img;
+    console.log('data ', data);
+    postVote(data);
+  }
+
+  function selectCanceled() {
+    setModal({ opened: false, data: null });
+  }
 
   return (
-    <Layout title="Selecione Candidato" navbar="votar" setPage={setPage}>
+    <Layout title="Seleccione Candidato" navbar="votar" setPage={setPage}>
       <main className={mainCSS}>
-        <h1>Seleccionar candidato</h1>
-        <List />
+        <h1>Seleccionar candidato al trono</h1>
+        <List onCandidateSelect={onCandidateSelect} />
+
+        {modal.opened
+        && (
+        <Modal
+          data={modal.data}
+          dataConfirmed={dataConfirmed}
+          selectCanceled={selectCanceled}
+        />
+        )}
+
       </main>
     </Layout>
   );
