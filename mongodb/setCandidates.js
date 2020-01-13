@@ -32,7 +32,7 @@ function setCandidates(db) {
         { _id: (index + 1) },
         {
           $setOnInsert: {
-            candidate: candidate.name,
+            name: candidate.name,
             house: candidate.house,
             votes: 0
           }
