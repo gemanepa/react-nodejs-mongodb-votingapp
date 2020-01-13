@@ -12,6 +12,7 @@ const onTerminationSignal = require('death');
 
 // Logging Modules
 const httpLogger = require('morgan');
+
 const log = require('./utils/consoleMessage');
 
 // Endpoints Modules
@@ -19,6 +20,7 @@ const viewsRouter = require('./routes/views');
 const voterRouter = require('./routes/voter');
 const voteRouter = require('./routes/vote');
 
+const setCandidates = require('./mongodb/setCandidates')
 
 const app = express();
 app.use(express.json());
@@ -28,26 +30,29 @@ app.use(httpLogger('dev'));
 app.use(express.static('public'));
 
 log('info', 'Connecting application with MongoDB...');
-MongoClient.connect('mongodb://localhost:27017/utn-dw-votacion', { useUnifiedTopology: true }, (err, database) => {
+MongoClient.connect('mongodb://localhost:27017/utn-dw-votacion', { useUnifiedTopology: true }, (err, mongodb) => {
   assert.equal(null, err);
+  const db = mongodb.db('election');
+  setCandidates(db);
   log('info', 'Connection established');
 
-
   (async () => {
-  // register `.jsx` or `.tsx` as a view template engine
+    log('info', 'Setting routes and view template...');
+    // register `.jsx` or `.tsx` as a view template engine
     await register(app);
 
     app.use('/', viewsRouter);
 
     app.use('/voter', (req, res, next) => {
-      req.database = database;
+      req.database = db;
       next();
     }, voterRouter);
 
     app.use('/vote', (req, res, next) => {
-      req.database = database;
+      req.database = db;
       next();
     }, voteRouter);
+    log('info', 'Done.');
 
     app.listen(3000, () => {
       log('header', 'RUNNING APPLICATION ON PORT 3000', true);
@@ -66,7 +71,7 @@ MongoClient.connect('mongodb://localhost:27017/utn-dw-votacion', { useUnifiedTop
 
   onTerminationSignal(() => {
     log('info', 'Closing database connection', true);
-    database.close();
+    mongodb.close();
     log('info', 'Closed');
     log('info', 'Exiting process...');
     process.exit();

@@ -4,8 +4,13 @@ const router = express.Router();
 
 /* GET voter */
 router.get('/', (req, res) => {
-  console.log(req.headers['x-dni']);
-  res.json({ dni: false });
+  const query = { dni: req.headers['x-dni'] };
+
+  req.database.collection('voters').find(query).toArray((err, result) => {
+    if (err) throw err;
+
+    res.json({ dni: result[0] });
+  });
 });
 
 module.exports = router;
