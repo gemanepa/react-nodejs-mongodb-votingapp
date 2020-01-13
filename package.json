@@ -6,15 +6,17 @@
   "main": "app.js",
   "scripts": {
     "build": "webpack --mode production",
-    "start": "node index.js",
-    "lint": "eslint src/routes/*.js && eslint src/utils/*.js && eslint src/views/*.jsx && eslint app.js"
+    "server": "node index.js",
+    "lint": "eslint src/routes/*.js && eslint src/utils/*.js && eslint src/views/*.jsx && eslint index.js",
+    "mongodb": "mongod --dbpath=./mongodb --port 27017"
   },
   "license": "ISC",
   "dependencies": {
     "@react-ssr/core": "^0.19.6",
     "@react-ssr/express": "^0.19.6",
-    "body-parser": "^1.19.0",
+    "assert": "^2.0.0",
     "chalk": "^3.0.0",
+    "death": "^1.1.0",
     "emotion": "^10.0.27",
     "express": "^4.17.1",
     "mongodb": "^3.4.1",
