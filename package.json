@@ -6,7 +6,7 @@
   "main": "app.js",
   "scripts": {
     "build": "webpack --mode production",
-    "lint": "eslint routes/**/*.js && eslint utils/**/*.js && eslint views/**/*.jsx && eslint index.js",
+    "lint": "eslint routes/**/*.js && eslint utils/**/*.js && eslint views/**/*.jsx && eslint mongodb/setCandidates.js && eslint index.js",
     "mongodb": "mongod --dbpath=./mongodb --port 27017",
     "server": "node index.js"
   },
