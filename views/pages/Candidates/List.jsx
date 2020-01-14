@@ -19,9 +19,10 @@ padding-left: 0px;
     width: 45%;
 
     img {
-        width: 100px;
-        height: 100px;
-        border-radius: 5px;
+        min-width: 100px;
+        min-height: 100px;
+        max-width: 100px;
+        max-height: 100px;
     }
 
     .text {
@@ -43,9 +44,10 @@ padding-left: 0px;
 .candidate:hover {
     border-color: #4CAF50;
 }
-  @media screen and (max-width: 600px) {
-    ul.topnav li.right, 
-    ul.topnav li {float: none;}
+  @media screen and (max-width: 1199px) {
+    .candidate {
+      width: 100%;
+    }
   }
 `;
 
@@ -55,12 +57,12 @@ export default function List(props) {
     <ul className={listCSS}>
       {data.candidates.map((candidate) => (
         <li className="candidate" key={candidate.name} onClick={() => onCandidateSelect({ name: candidate.name, house: candidate.house, img: candidate.img })} title={`Seleccionar ${candidate.name}`}>
-          <img src={`./images/candidate-${candidate.img}`} alt="" />
+          <img src={`./images/candidate-${candidate.img}.jpg`} alt="" />
           <div className="text">
             <span className="name">{candidate.name}</span>
             <br />
             <span className="house">
-              {`House ${candidate.house}`}
+              {`${candidate.house}`}
             </span>
           </div>
         </li>

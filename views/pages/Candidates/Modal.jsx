@@ -3,15 +3,15 @@ import { css } from 'emotion';
 import PropTypes from 'prop-types';
 import Button from '../../shared-ui/Button';
 
+
 const modalCSS = css`
 position: absolute;
 background:rgba(128,128,128,0.9);
 width: 100vw;
-height: 100vh;
+height: ${typeof document !== 'undefined' ? `${document.body.clientHeight}px` : '100vh'};
 top: 0;
 left: 0;
 .dialog {
-    width: 50vw;
     height: auto;
     margin: 2.5% auto;
     border-radius: 5px;
@@ -24,6 +24,7 @@ left: 0;
 
     h2 {
         margin-bottom: 0px;
+        text-decoration: underline;
     }
 
     .buttons {
@@ -43,30 +44,56 @@ left: 0;
         margin-top: 10px;
         border-radius: 5px;
     }
-    @media (max-width: 1199px) {
-        .flex {
-            flex-direction: column;
-        }
+}
+@media (max-width: 1199px) {
+  .dialog {
+    width: 75%;
+    h3 {
+      margin-bottom: 0px;
     }
-    @media (min-width: 1200px) {
-        .flex {
-            flex-direction: row;
-            justify-content: space-around;
-        }
+    .flex {
+      flex-direction: column;
     }
+    .flex.buttons {
+      flex-direction: column-reverse;
+    }
+  }
+
+}
+@media (min-width: 1200px) {
+  .dialog {
+    width: 50vw;
+
+    .flex {
+      flex-direction: row;
+      justify-content: space-around;
+    }
+  }
 }
 `;
 
 const cancelButtonCSS = css`
 height: 50px;
-max-width: 40%;
+
 background-color: red;
+@media (min-width: 1200px) {
+  max-width: 40%;
+}
+@media (max-width: 1199px) {
+  margin-bottom: 10px;
+  min-width: 80%;
+}
 `;
 
 const confirmButtonCSS = css`
 height: 50px;
-max-width: 40%;
 background-color: green;
+@media (min-width: 1200px) {
+  max-width: 40%;
+}
+@media (max-width: 1199px) {
+  min-width: 80%;
+}
 `;
 
 export default function Modal(props) {
@@ -99,12 +126,12 @@ export default function Modal(props) {
           <h3>
             Genero:
             {' '}
-            {voter.gender}
+            {voter.gender === 'male' ? 'Hombre' : 'Mujer'}
           </h3>
         </div>
 
         <h2>Candidato</h2>
-        <img src={`./images/candidate-${candidate.img}`} alt="" />
+        <img src={`./images/candidate-${candidate.img}.jpg`} alt="" />
         <div className="flex">
           <h3>
             Nombre:
@@ -114,7 +141,7 @@ export default function Modal(props) {
           <h3>
             Casa:
             {' '}
-            {candidate.house}
+            {candidate.house.replace('House ', '')}
           </h3>
         </div>
         <div className="flex buttons">

@@ -2,28 +2,33 @@
     "candidates": [
         {
             "name": "Daenerys",
-            "house": "Targaryen",
-            "img": "daenerys.jpg"
+            "house": "House Targaryen",
+            "img": "daenerys"
         },
         {
             "name": "Jon Snow",
-            "house": "Stark",
-            "img": "daenerys.jpg"
+            "house": "House Stark",
+            "img": "jonsnow"
         },
         {
             "name": "Tyrion",
-            "house": "Lannister",
-            "img": "daenerys.jpg"
+            "house": "House Lannister",
+            "img": "tyrion"
         },
         {
             "name": "Sansa",
-            "house": "Stark",
-            "img": "daenerys.jpg"
+            "house": "House Stark",
+            "img": "sansa"
         },
         {
             "name": "Cersei",
-            "house": "Lannister",
-            "img": "daenerys.jpg"
+            "house": "House Lannister",
+            "img": "cersei"
+        },
+        {
+            "name": "Night King",
+            "house": "White Walkers",
+            "img": "nightking"
         }
     ]
 }

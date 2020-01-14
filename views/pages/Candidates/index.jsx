@@ -18,6 +18,9 @@ padding: 20px;
 margin-top: 1.5vh;
 @media (max-width: 1199px) {
   width: 80%;;
+  h1 {
+    text-align: center;
+  }
 }
 @media (min-width: 1200px) {
   width: 90%;
@@ -31,6 +34,10 @@ export default function Candidates(props) {
   const [snackbar, setSnackbar] = useState(null);
 
   function onCandidateSelect(selectedCandidate) {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
+
     setModal({ opened: true, data: { voterData, selectedCandidate } });
   }
 
