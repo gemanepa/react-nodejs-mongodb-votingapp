@@ -12,7 +12,6 @@ const onTerminationSignal = require('death');
 
 // Logging Modules
 const httpLogger = require('morgan');
-
 const log = require('./utils/consoleMessage');
 
 // Endpoints Modules
