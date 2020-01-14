@@ -20,7 +20,7 @@ const viewsRouter = require('./routes/views');
 const voterRouter = require('./routes/voter');
 const voteRouter = require('./routes/vote');
 
-const setCandidates = require('./mongodb/setCandidates');
+const setCandidates = require('./db/setCandidates');
 
 const app = express();
 app.use(express.json());

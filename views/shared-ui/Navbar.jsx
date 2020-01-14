@@ -42,9 +42,9 @@ export default function Navbar(props) {
   return (
     <div className={navbarCSS}>
       <ul className="topnav">
-        <li><a className={activePage === navpages[0] && 'active'} onClick={() => setPage('home')} role="button" tabIndex={0}>Home</a></li>
-        <li><a className={activePage === navpages[1] && 'active'} onClick={() => setPage('voterdata')} role="button" tabIndex={0}>Votar</a></li>
-        <li><a className={activePage === navpages[2] && 'active'} onClick={() => setPage('statistics')} role="button" tabIndex={0}>Estadisticas</a></li>
+        <li><a className={activePage === navpages[0] ? 'active' : 'inactive'} onClick={() => setPage('home')} role="button" tabIndex={0}>Home</a></li>
+        <li><a className={activePage === navpages[1] ? 'active' : 'inactive'} onClick={() => setPage('voterdata')} role="button" tabIndex={0}>Votar</a></li>
+        <li><a className={activePage === navpages[2] ? 'active' : 'inactive'} onClick={() => setPage('statistics')} role="button" tabIndex={0}>Estadisticas</a></li>
         <li className="right"><a>Gabriel E. Martínez Cánepa</a></li>
       </ul>
     </div>

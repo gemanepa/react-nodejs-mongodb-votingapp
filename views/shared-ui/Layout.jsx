@@ -41,6 +41,6 @@ export default function Layout(props) {
 Layout.propTypes = {
   children: PropTypes.element.isRequired,
   title: PropTypes.string.isRequired,
-  navbar: PropTypes.element.isRequired,
+  navbar: PropTypes.elementType.isRequired,
   setPage: PropTypes.func.isRequired
 };

@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 import Layout from '../../shared-ui/Layout';
-import Button from '../../shared-ui/Button';
 
 
-export default function Home(props) {
+export default function Statistics(props) {
   const { setPage } = props;
   const mainCSS = css`
   display: flex;
@@ -29,6 +28,6 @@ export default function Home(props) {
   );
 }
 
-Home.propTypes = {
-  pageName: PropTypes.string.isRequired
+Statistics.propTypes = {
+  setPage: PropTypes.func.isRequired
 };

@@ -6,7 +6,12 @@ import Statistics from './pages/Statistics';
 
 export default function Index() {
   const [page, setPage] = useState('home');
-  const [voterData, setVoterData] = useState(undefined);
+  const [voterData, setVoterData] = useState({
+    firstName: '',
+    lastName: '',
+    dni: '',
+    gender: ''
+  });
 
   function renderPage() {
     const pages = {

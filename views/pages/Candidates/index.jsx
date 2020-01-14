@@ -81,5 +81,10 @@ export default function Candidates(props) {
 
 Candidates.propTypes = {
   setPage: PropTypes.func.isRequired,
-  voterData: PropTypes.func.isRequired
+  voterData: PropTypes.exact({
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
+    dni: PropTypes.string.isRequired,
+    gender: PropTypes.string.isRequired
+  }).isRequired
 };
