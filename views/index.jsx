@@ -13,7 +13,7 @@ export default function Index() {
       home: <Home setPage={setPage} />,
       voterdata: <VoterData setPage={setPage} setVoterData={setVoterData} />,
       candidates: <Candidates setPage={setPage} voterData={voterData} />,
-      statistics: <Statistics setPage={setPage} />,
+      statistics: <Statistics setPage={setPage} />
     };
     return pages[page];
   }

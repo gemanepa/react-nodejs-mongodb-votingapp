@@ -36,5 +36,5 @@ export default function Home(props) {
 }
 
 Home.propTypes = {
-  pageName: PropTypes.string.isRequired
+  setPage: PropTypes.func.isRequired
 };

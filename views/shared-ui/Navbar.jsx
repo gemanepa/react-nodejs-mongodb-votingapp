@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 
@@ -40,11 +42,16 @@ export default function Navbar(props) {
   return (
     <div className={navbarCSS}>
       <ul className="topnav">
-        <li><a className={activePage === navpages[0] && 'active'} onClick={() => setPage('home')}>Home</a></li>
-        <li><a className={activePage === navpages[1] && 'active'} onClick={() => setPage('voterdata')}>Votar</a></li>
-        <li><a className={activePage === navpages[2] && 'active'} onClick={() => setPage('statistics')}>Estadisticas</a></li>
+        <li><a className={activePage === navpages[0] && 'active'} onClick={() => setPage('home')} role="button" tabIndex={0}>Home</a></li>
+        <li><a className={activePage === navpages[1] && 'active'} onClick={() => setPage('voterdata')} role="button" tabIndex={0}>Votar</a></li>
+        <li><a className={activePage === navpages[2] && 'active'} onClick={() => setPage('statistics')} role="button" tabIndex={0}>Estadisticas</a></li>
         <li className="right"><a>Gabriel E. Martínez Cánepa</a></li>
       </ul>
     </div>
   );
 }
+
+Navbar.propTypes = {
+  activePage: PropTypes.string.isRequired,
+  setPage: PropTypes.func.isRequired
+};

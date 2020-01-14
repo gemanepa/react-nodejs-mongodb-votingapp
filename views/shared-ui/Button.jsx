@@ -36,5 +36,6 @@ Button.defaultProps = {
 
 Button.propTypes = {
   nonDefaultCss: PropTypes.string,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
+  click: PropTypes.func.isRequired
 };

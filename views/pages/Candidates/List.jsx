@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { css } from 'emotion';
 import data from './candidates-data.json';
 
@@ -56,7 +57,18 @@ export default function List(props) {
   return (
     <ul className={listCSS}>
       {data.candidates.map((candidate) => (
-        <li className="candidate" key={candidate.name} onClick={() => onCandidateSelect({ name: candidate.name, house: candidate.house, img: candidate.img })} title={`Seleccionar ${candidate.name}`}>
+
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+        <li // eslint-disable-line jsx-a11y/click-events-have-key-events
+          title={`Seleccionar ${candidate.name}`}
+          className="candidate"
+          key={candidate.name}
+          onClick={() => onCandidateSelect({
+            name: candidate.name,
+            house: candidate.house,
+            img: candidate.img
+          })}
+        >
           <img src={`./images/candidate-${candidate.img}.jpg`} alt="" />
           <div className="text">
             <span className="name">{candidate.name}</span>
@@ -70,3 +82,7 @@ export default function List(props) {
     </ul>
   );
 }
+
+List.propTypes = {
+  onCandidateSelect: PropTypes.func.isRequired
+};

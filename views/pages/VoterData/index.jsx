@@ -34,7 +34,6 @@ export default function VoterData(props) {
     if (!voterData.dni) {
       setVoterData(submittedData);
       setPage('candidates');
-      console.log('voterData ', voterData)
     } else if (voterData.dni) {
       setAlreadyVoted(true);
       setTimeout(() => { setAlreadyVoted(false); }, 3000);
@@ -53,5 +52,6 @@ export default function VoterData(props) {
 }
 
 VoterData.propTypes = {
-  pageName: PropTypes.string.isRequired
+  setPage: PropTypes.func.isRequired,
+  setVoterData: PropTypes.func.isRequired
 };

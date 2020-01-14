@@ -80,5 +80,6 @@ export default function Candidates(props) {
 }
 
 Candidates.propTypes = {
-  pageName: PropTypes.string.isRequired
+  setPage: PropTypes.func.isRequired,
+  voterData: PropTypes.func.isRequired
 };

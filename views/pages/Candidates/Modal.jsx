@@ -153,3 +153,9 @@ export default function Modal(props) {
     </div>
   );
 }
+
+Modal.propTypes = {
+  dataConfirmed: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+};

@@ -19,7 +19,9 @@ const bodyCSS = css`
 `;
 
 export default function Layout(props) {
-  const { children, title, navbar, setPage } = props;
+  const {
+    children, title, navbar, setPage
+  } = props;
   return (
     <html lang="es-AR">
       <head>
@@ -38,5 +40,7 @@ export default function Layout(props) {
 
 Layout.propTypes = {
   children: PropTypes.element.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  navbar: PropTypes.element.isRequired,
+  setPage: PropTypes.func.isRequired
 };
