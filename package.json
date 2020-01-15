@@ -24,8 +24,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-hook-form": "^4.4.3",
-    "swr": "^0.1.16"
+    "react-hook-form": "^4.4.3"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
