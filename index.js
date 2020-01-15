@@ -16,6 +16,7 @@ const log = require('./utils/consoleMessage');
 
 // Endpoints Modules
 const viewsRouter = require('./routes/views');
+const candidatesRouter = require('./routes/candidates');
 const voterRouter = require('./routes/voter');
 const voteRouter = require('./routes/vote');
 
@@ -41,6 +42,11 @@ MongoClient.connect('mongodb://localhost:27017/utn-dw-votacion', { useUnifiedTop
     await register(app);
 
     app.use('/', viewsRouter);
+
+    app.use('/candidates', (req, res, next) => {
+      req.database = db;
+      next();
+    }, candidatesRouter);
 
     app.use('/voter', (req, res, next) => {
       req.database = db;

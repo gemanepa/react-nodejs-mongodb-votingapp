@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
 import Layout from '../../shared-ui/Layout';
@@ -6,6 +6,7 @@ import Snackbar from '../../shared-ui/Snackbar';
 import List from './List';
 import Modal from './Modal';
 import postVoterDbData from '../../requests/postVote';
+import getCandidatesDbData from '../../requests/getCandidates';
 
 const mainCSS = css`
 display: block;
@@ -29,9 +30,16 @@ margin-top: 1.5vh;
 
 export default function Candidates(props) {
   const { setPage, voterData } = props;
+  const [candidates, setCandidates] = useState(undefined) 
   const [modal, setModal] = useState({ opened: false, data: null });
   const [voted, setVoted] = useState(false);
   const [snackbar, setSnackbar] = useState(null);
+
+  useEffect(async () => {
+    const result = await getCandidatesDbData(false);
+    setCandidates(result);
+  }, []);
+
 
   function onCandidateSelect(selectedCandidate) {
     if (typeof window !== 'undefined') {
@@ -45,10 +53,8 @@ export default function Candidates(props) {
     setModal({ opened: false, data: null });
   }
 
-  async function dataConfirmed(data) {
-    const postReqData = data;
-    delete postReqData.candidate.img;
-    const request = await postVoterDbData(data);
+  async function dataConfirmed(postReqData) {
+    const request = await postVoterDbData(postReqData);
     closeModal();
     setSnackbar(request.success);
     setVoted(true);
@@ -57,11 +63,18 @@ export default function Candidates(props) {
     }, 2500);
   }
 
+
   return (
     <Layout title="Seleccione Candidato" navbar="votar" setPage={setPage}>
       <main className={mainCSS}>
-        <h1>Seleccionar candidato al trono</h1>
-        <List onCandidateSelect={onCandidateSelect} />
+
+        {candidates
+          ? (
+            <>
+              <h1>Seleccionar candidato al trono</h1>
+              <List candidates={candidates} onCandidateSelect={onCandidateSelect} />
+            </>
+          ) : (<h1>Cargando candidatos...</h1>)}
 
         {(modal.opened && !voted)
         && (

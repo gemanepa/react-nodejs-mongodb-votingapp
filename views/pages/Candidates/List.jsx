@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'emotion';
-import data from './candidates-data.json';
 
 const listCSS = css`
 list-style-type: none;
@@ -53,10 +52,10 @@ padding-left: 0px;
 `;
 
 export default function List(props) {
-  const { onCandidateSelect } = props;
+  const { candidates, onCandidateSelect } = props;
   return (
     <ul className={listCSS}>
-      {data.candidates.map((candidate) => (
+      {candidates.map((candidate) => (
 
         // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
         <li // eslint-disable-line jsx-a11y/click-events-have-key-events
@@ -84,5 +83,6 @@ export default function List(props) {
 }
 
 List.propTypes = {
-  onCandidateSelect: PropTypes.func.isRequired
+  onCandidateSelect: PropTypes.func.isRequired,
+  candidates: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };

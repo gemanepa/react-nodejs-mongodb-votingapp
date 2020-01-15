@@ -1,9 +1,9 @@
-export default async function (requestData) {
-  const response = await fetch('/voter', {
+export default async function (votecount) {
+  const response = await fetch('/candidates', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'x-dni': requestData.dni
+      'vote-count': votecount
     },
     mode: 'cors',
     cache: 'default'

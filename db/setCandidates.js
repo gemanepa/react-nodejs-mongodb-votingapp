@@ -1,27 +1,33 @@
 const candidates = [
   {
     name: 'Daenerys',
-    house: 'Targaryen'
+    house: 'Targaryen',
+    img: 'daenerys'
   },
   {
     name: 'Tyrion',
-    house: 'Lannister'
+    house: 'Lannister',
+    img: 'tyrion'
   },
   {
     name: 'Cersei',
-    house: 'Lannister'
+    house: 'Lannister',
+    img: 'cersei'
   },
   {
     name: 'Jon Snow',
-    house: 'Stark'
+    house: 'Stark',
+    img: 'jonsnow'
   },
   {
     name: 'Sansa',
-    house: 'Stark'
+    house: 'Stark',
+    img: 'sansa'
   },
   {
     name: 'Night King',
-    house: 'White Walkers'
+    house: 'White Walkers',
+    img: 'nightking'
   }
 ];
 
@@ -34,6 +40,7 @@ function setCandidates(db) {
           $setOnInsert: {
             name: candidate.name,
             house: candidate.house,
+            img: candidate.img,
             votes: 0
           }
         },
