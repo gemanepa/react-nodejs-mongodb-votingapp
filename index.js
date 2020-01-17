@@ -69,6 +69,7 @@ MongoClient.connect('mongodb://localhost:27017/utn-dw-votacion', { useUnifiedTop
       log('info', 'App Logs: Chalk');
       log('header', 'ENDPOINTS', true);
       log('info', 'GET  | /');
+      log('info', 'GET  | /candidates');
       log('info', 'GET  | /voter');
       log('info', 'POST | /vote');
     });

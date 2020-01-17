@@ -27,7 +27,7 @@ export default function Home(props) {
   `;
 
   return (
-    <Layout title="Home" navbar="home" setPage={setPage}>
+    <Layout navbar="home" setPage={setPage}>
       <main className={mainCSS}>
         <Button text="Iniciar" click={setPage} nonDefaultCss={buttonCSS} />
       </main>

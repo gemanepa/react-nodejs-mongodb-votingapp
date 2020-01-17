@@ -41,7 +41,7 @@ export default function VoterData(props) {
   };
 
   return (
-    <Layout title="Voter Data" navbar="votar" setPage={setPage}>
+    <Layout navbar="votar" setPage={setPage}>
       <main className={mainCSS}>
         <h1>Datos del votante</h1>
         <Form validateVoterData={validateVoterData} />

@@ -30,14 +30,18 @@ margin-top: 1.5vh;
 
 export default function Candidates(props) {
   const { setPage, voterData } = props;
-  const [candidates, setCandidates] = useState(undefined) 
+  const [candidates, setCandidates] = useState(undefined);
   const [modal, setModal] = useState({ opened: false, data: null });
   const [voted, setVoted] = useState(false);
   const [snackbar, setSnackbar] = useState(null);
 
-  useEffect(async () => {
+  async function fetchCandidates() {
     const result = await getCandidatesDbData(false);
     setCandidates(result);
+  }
+
+  useEffect(() => {
+    fetchCandidates();
   }, []);
 
 
@@ -65,7 +69,7 @@ export default function Candidates(props) {
 
 
   return (
-    <Layout title="Seleccione Candidato" navbar="votar" setPage={setPage}>
+    <Layout navbar="votar" setPage={setPage}>
       <main className={mainCSS}>
 
         {candidates

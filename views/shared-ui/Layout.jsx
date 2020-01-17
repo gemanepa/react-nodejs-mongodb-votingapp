@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Head } from '@react-ssr/express';
 import { css } from 'emotion';
 import NavBar from './Navbar';
 
@@ -20,27 +21,18 @@ const bodyCSS = css`
 
 export default function Layout(props) {
   const {
-    children, title, navbar, setPage
+    children, navbar, setPage
   } = props;
   return (
-    <html lang="es-AR">
-      <head>
-        <meta charSet="utf-8" />
-        <title>{`Votacion - ${title}`}</title>
-        <meta name="author" content="Gabriel Ernesto Martínez Cánepa" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
-      <body className={bodyCSS}>
-        <NavBar activePage={navbar} setPage={setPage} />
-        { children }
-      </body>
-    </html>
+    <div className={bodyCSS}>
+      <NavBar activePage={navbar} setPage={setPage} />
+      { children }
+    </div>
   );
 }
 
 Layout.propTypes = {
   children: PropTypes.element.isRequired,
-  title: PropTypes.string.isRequired,
   navbar: PropTypes.elementType.isRequired,
   setPage: PropTypes.func.isRequired
 };
