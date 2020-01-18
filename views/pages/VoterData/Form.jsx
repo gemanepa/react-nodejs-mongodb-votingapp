@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { css } from 'emotion';
@@ -39,10 +39,28 @@ const formCSS = css`
         border-radius: 4px;
         cursor: pointer;
       }
+
+      input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
       
-    input[type=submit]:hover {
+      input[type=submit]:hover {
         background-color: #45a049;
-    }
+      }
+
+      input[type=submit][disabled], input[type=submit][disabled]:hover {
+        background-color: gray;
+        cursor: default
+      }
+
+
 
     p {
         margin-top: 0;
@@ -100,6 +118,10 @@ function validationHandler(error) {
 
 export default function Form(props) {
   const { register, handleSubmit, errors } = useForm();
+  const [submitdDisabled, setSubmitdDisabled] = useState({
+    firstName: true, lastName: true, dni: true, gender: true
+  });
+
   const onSubmit = async (submittedData) => {
     props.validateVoterData(submittedData);
   };
@@ -110,39 +132,39 @@ export default function Form(props) {
       <label htmlFor="firstName">
         Nombre
         <br />
-        <input name="firstName" id="firstName" type="text" ref={register({ required: true, pattern: /^[A-Za-z ]+$/i, minLength: 3 })} />
+        <input name="firstName" id="firstName" type="text" ref={register({ required: true, pattern: /^[A-Za-z ]+$/i, minLength: 3 })} onClick={() => submitdDisabled.firstName && setSubmitdDisabled({ ...submitdDisabled, firstName: false })} />
         {validationHandler(errors.firstName)}
       </label>
 
       <label htmlFor="lastName">
         Apellido
         <br />
-        <input name="lastName" id="lastName" type="text" ref={register({ required: true, pattern: /^[A-Za-z ]+$/i, min: 3 })} />
+        <input name="lastName" id="lastName" type="text" ref={register({ required: true, pattern: /^[A-Za-z ]+$/i, min: 3 })} onClick={() => submitdDisabled.lastName && setSubmitdDisabled({ ...submitdDisabled, lastName: false })} />
         {validationHandler(errors.lastName)}
       </label>
 
       <label htmlFor="dni">
         DNI
         <br />
-        <input name="dni" type="number" id="dni" ref={register({ required: true, min: 10000000, max: 50000000 })} />
+        <input name="dni" type="number" id="dni" ref={register({ required: true, min: 10000000, max: 50000000 })} onClick={() => submitdDisabled.dni && setSubmitdDisabled({ ...submitdDisabled, dni: false })} />
         {validationHandler(errors.dni)}
       </label>
 
       <p>Genero</p>
       <div className="radioInputs">
         <label htmlFor="radio-male">
-          <input name="gender" type="radio" value="male" id="radio-male" ref={register({ required: true })} />
+          <input name="gender" type="radio" value="male" id="radio-male" ref={register({ required: true })} onClick={() => submitdDisabled.gender && setSubmitdDisabled({ ...submitdDisabled, gender: false })} />
           <p>Hombre</p>
         </label>
 
         <label htmlFor="radio-female">
-          <input name="gender" type="radio" value="female" id="radio-female" ref={register({ required: true })} />
+          <input name="gender" type="radio" value="female" id="radio-female" ref={register({ required: true })} onClick={() => submitdDisabled.gender && setSubmitdDisabled({ ...submitdDisabled, gender: false })} />
           <p>Mujer</p>
         </label>
       </div>
       {validationHandler(errors.gender)}
 
-      <input type="submit" />
+      <input type="submit" disabled={!((!submitdDisabled.firstName && !submitdDisabled.lastName && !submitdDisabled.dni && !submitdDisabled.gender))} />
     </form>
   );
 }

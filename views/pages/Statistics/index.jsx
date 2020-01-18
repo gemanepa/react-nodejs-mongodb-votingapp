@@ -4,13 +4,8 @@ import { css } from 'emotion';
 import Layout from '../../shared-ui/Layout';
 import getCandidatesDbData from '../../requests/getCandidates';
 import Chart from './Chart';
+import fadeIn from '../../shared-ui/animations';
 
-// @media (max-width: 1199px) {
-//   padding-top: 40vh;
-// }
-// @media (min-width: 1200px) {
-//   padding-top: 30%;
-// }
 const mainCSS = css`
   display: block;
   margin: 0 auto;
@@ -22,6 +17,8 @@ const mainCSS = css`
   padding: 15px 20px;
   margin-top: 30px;
   margin-bottom: 50px;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
   h1 {
     margin: 5px 0px;
     text-align: center;
@@ -50,7 +47,7 @@ export default function Statistics(props) {
 
   return (
     <Layout navbar="statistics" setPage={setPage}>
-      <main className={mainCSS}>
+      <main className={[mainCSS, fadeIn].join(' ')}>
         <h1>Estadisticas</h1>
         {candidates && <Chart candidates={candidates} />}
       </main>

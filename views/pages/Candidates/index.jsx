@@ -7,6 +7,7 @@ import List from './List';
 import Modal from './Modal';
 import postVoterDbData from '../../requests/postVote';
 import getCandidatesDbData from '../../requests/getCandidates';
+import fadeIn from '../../shared-ui/animations';
 
 const mainCSS = css`
 display: block;
@@ -17,6 +18,8 @@ border-radius: 5px;
 background-color: #f2f2f2;
 padding: 20px;
 margin-top: 1.5vh;
+animation-name: fadeIn;
+animation-duration: 0.5s;
 @media (max-width: 1199px) {
   width: 80%;
   margin-top: 30px;
@@ -29,6 +32,7 @@ margin-top: 1.5vh;
   width: 90%;
 }
 `;
+
 
 export default function Candidates(props) {
   const { setPage, voterData } = props;
@@ -72,7 +76,7 @@ export default function Candidates(props) {
 
   return (
     <Layout navbar="votar" setPage={setPage}>
-      <main className={mainCSS}>
+      <main className={[mainCSS, fadeIn].join(' ')}>
 
         {candidates
           ? (

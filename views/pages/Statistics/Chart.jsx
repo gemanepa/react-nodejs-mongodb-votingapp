@@ -25,7 +25,6 @@ const chartCSS = css`
       margin: 0;
     }
 
-
     img {
       min-width: 100px;
       min-height: 100px;
@@ -33,7 +32,6 @@ const chartCSS = css`
       max-height: 100px;
       border-radius: 5px;
     }
-
     
     .datacontainer {
       height: 100%;
@@ -76,7 +74,7 @@ const chartCSS = css`
 
 export default function Chart(props) {
   const { candidates } = props;
-
+  const sortedCandidates = candidates.sort((a, b) => ((a.votes < b.votes) ? 1 : -1));
   let totalVotes = 0;
   candidates.forEach((candidate) => {
     totalVotes += candidate.votes;
@@ -84,13 +82,13 @@ export default function Chart(props) {
 
   return (
     <section className={chartCSS}>
-      {candidates.map((candidate) => (
+      {sortedCandidates.map((candidate) => (
         <article key={candidate.name}>
           <img src={`./images/candidate-${candidate.img}.jpg`} alt="" />
 
           <div className="datacontainer">
             <h4 className="name">{candidate.name}</h4>
-            <h4 className="house">{candidate.house !== 'White Walkers'? `House ${candidate.house}` : candidate.house}</h4>
+            <h4 className="house">{candidate.house !== 'White Walkers' ? `House ${candidate.house}` : candidate.house}</h4>
             <meter value={candidate.votes} min="0" max={totalVotes} className="bar" />
             <h4 className="votes">
               {candidate.votes}

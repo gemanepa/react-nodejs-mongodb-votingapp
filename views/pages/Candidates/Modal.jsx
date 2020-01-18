@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 import PropTypes from 'prop-types';
 import Button from '../../shared-ui/Button';
-
+import zoomIn from '../../shared-ui/animations';
 
 const modalCSS = css`
 position: absolute;
@@ -11,6 +11,7 @@ width: 100vw;
 height: ${typeof document !== 'undefined' ? `${document.body.clientHeight}px` : '100vh'};
 top: 0;
 left: 0;
+overflow: hidden;
 .dialog {
     height: auto;
     margin: 2.5% auto;
@@ -18,6 +19,8 @@ left: 0;
     background-color: white;
     padding: 5px 35px 35px 35px;
     border-radius: 5px;
+    animation-name: zoomIn;
+    animation-duration: 0.5s;
     h1 {
         text-align: center;
     }
@@ -102,7 +105,7 @@ export default function Modal(props) {
 
   return (
     <div className={modalCSS}>
-      <div className="dialog">
+      <div className={[zoomIn, 'dialog'].join(' ')}>
         <h1>Confirmar datos</h1>
         <h2>Votante</h2>
         <div className="flex">

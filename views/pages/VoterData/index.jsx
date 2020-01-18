@@ -5,6 +5,7 @@ import Layout from '../../shared-ui/Layout';
 import Form from './Form';
 import Snackbar from '../../shared-ui/Snackbar';
 import getVoterDbData from '../../requests/getVoter';
+import fadeIn from '../../shared-ui/animations';
 
 const mainCSS = css`
 display: block;
@@ -16,6 +17,8 @@ border-radius: 5px;
 background-color: #f2f2f2;
 padding: 20px;
 margin-top: 1.5vh;
+animation-name: fadeIn;
+animation-duration: 0.5s;
 @media (max-width: 1199px) {
   width: 80%;
   margin-top: 30px;
@@ -25,6 +28,7 @@ margin-top: 1.5vh;
   width: 50%;
 }
 `;
+
 
 export default function VoterData(props) {
   const { setPage, setVoterData } = props;
@@ -44,7 +48,7 @@ export default function VoterData(props) {
 
   return (
     <Layout navbar="votar" setPage={setPage}>
-      <main className={mainCSS}>
+      <main className={[mainCSS, fadeIn].join(' ')}>
         <h1>Datos del votante</h1>
         <Form validateVoterData={validateVoterData} />
         {alreadyVoted && <Snackbar text="Este votante ya voto" />}
