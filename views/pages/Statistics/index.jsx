@@ -12,11 +12,26 @@ import Chart from './Chart';
 //   padding-top: 30%;
 // }
 const mainCSS = css`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  display: block;
   margin: 0 auto;
-  height: 100%;
+  width: 50%;
+  min-height: 100%;
+  height: auto;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 15px 20px;
+  margin-top: 1.5vh;
+  h1 {
+    margin: 5px 0px;
+    text-align: center;
+    padding: 0;
+  }
+  @media (max-width: 1199px) {
+    width: 80%;
+  }
+  @media (min-width: 1200px) {
+    width: 80%;
+  }
 `;
 
 export default function Statistics(props) {
@@ -35,7 +50,7 @@ export default function Statistics(props) {
   return (
     <Layout navbar="statistics" setPage={setPage}>
       <main className={mainCSS}>
-        <h1>Statistics</h1>
+        <h1>Estadisticas</h1>
         {candidates && <Chart candidates={candidates} />}
       </main>
     </Layout>
