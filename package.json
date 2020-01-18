@@ -3,7 +3,7 @@
   "author": "gabriel-ernesto-martinez-canepa",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "lint": "eslint routes/**/*.js && eslint utils/**/*.js && eslint views/**/*.jsx && eslint db/setCandidates.js && eslint index.js",
     "mongodb": "mongod --dbpath=./db/data --port 27017",
