@@ -20,7 +20,8 @@ const mainCSS = css`
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 15px 20px;
-  margin-top: 1.5vh;
+  margin-top: 30px;
+  margin-bottom: 50px;
   h1 {
     margin: 5px 0px;
     text-align: center;

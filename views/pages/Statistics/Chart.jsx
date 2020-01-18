@@ -5,7 +5,8 @@ import { css } from 'emotion';
 const chartCSS = css`
     display: flex;
     justify-content: space-around;
-    flex-flow: row wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
     margin: 0 auto;
     height: 100%;
     position: relative;
@@ -60,6 +61,16 @@ const chartCSS = css`
       h4.house {
           font-style: italic;
       };
+    }
+
+    @media screen and (max-width: 1199px) {
+      flex-direction: column;
+      article {
+        width: 100%;
+        .datacontainer {
+          width: 62%;
+        }
+      }
     }
 `;
 

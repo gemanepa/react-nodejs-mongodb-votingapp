@@ -18,7 +18,9 @@ background-color: #f2f2f2;
 padding: 20px;
 margin-top: 1.5vh;
 @media (max-width: 1199px) {
-  width: 80%;;
+  width: 80%;
+  margin-top: 30px;
+  margin-bottom: 50px;
   h1 {
     text-align: center;
   }
