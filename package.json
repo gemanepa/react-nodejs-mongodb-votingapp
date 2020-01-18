@@ -16,6 +16,7 @@
     "@react-ssr/express": "^0.19.6",
     "assert": "^2.0.0",
     "chalk": "^3.0.0",
+    "cors": "^2.8.5",
     "death": "^1.1.0",
     "emotion": "^10.0.27",
     "express": "^4.17.1",
