@@ -63,7 +63,7 @@ MongoClient.connect('mongodb://localhost:27017/utn-dw-votacion', { useUnifiedTop
     log('info', 'Done.');
 
     app.listen(3000, () => {
-      log('header', 'RUNNING APPLICATION ON PORT 3000', true);
+      log('header', `RUNNING APPLICATION ON PORT ${process.env.PORT || 3000}`, true);
       log('info', 'View Logic Handler: React');
       log('info', 'View Styles Handler: Emotion');
       log('info', 'View Template Engine: JSX');
