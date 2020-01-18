@@ -84,5 +84,5 @@ export default function List(props) {
 
 List.propTypes = {
   onCandidateSelect: PropTypes.func.isRequired,
-  candidates: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+  candidates: PropTypes.array.isRequired // eslint-disable-line react/forbid-prop-types
 };

@@ -1,6 +1,6 @@
 import { css } from 'emotion';
 
-const flipInX = css`
+export const flipInX = css`
 @keyframes flipInX {
   from {
     transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
@@ -28,7 +28,7 @@ const flipInX = css`
 }
 `;
 
-const fadeIn = css`
+export const fadeIn = css`
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -40,7 +40,7 @@ const fadeIn = css`
 }
 `;
 
-const zoomIn = css`
+export const zoomIn = css`
 @keyframes zoomIn {
     from {
       opacity: 0;
@@ -56,5 +56,3 @@ const zoomIn = css`
     animation-name: zoomIn;
   }
 `;
-
-export { flipInX, fadeIn, zoomIn };
