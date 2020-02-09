@@ -27,7 +27,7 @@ export default function Home(props) {
   }
 
   @media (max-width: 1199px) {
-    padding-top: 22vh;
+    padding-top: 16vh;
     div {
       margin-bottom: 25vh;
       img {
