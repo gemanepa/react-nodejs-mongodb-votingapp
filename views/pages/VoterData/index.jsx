@@ -26,6 +26,7 @@ animation-duration: 0.5s;
 }
 @media (min-width: 1200px) {
   width: 50%;
+  margin-top: 5%;
 }
 `;
 

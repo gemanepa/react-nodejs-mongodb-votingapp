@@ -27,16 +27,16 @@ export default function Home(props) {
   }
 
   @media (max-width: 1199px) {
-    padding-top: 12vh;
+    padding-top: 22vh;
     div {
-      margin-bottom: 15vh;
+      margin-bottom: 25vh;
       img {
         width: 95%;
       }
     }
   }
   @media (min-width: 1200px) {
-    padding-top: 3%;
+    padding-top: 6%;
     div {
       margin-bottom: 13%;
       img {

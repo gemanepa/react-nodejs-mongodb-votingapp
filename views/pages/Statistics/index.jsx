@@ -29,6 +29,7 @@ const mainCSS = css`
   }
   @media (min-width: 1200px) {
     width: 80%;
+    margin-top: 5%;
   }
 `;
 
