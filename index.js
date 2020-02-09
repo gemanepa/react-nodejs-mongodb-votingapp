@@ -71,9 +71,11 @@ MongoClient.connect(`${mongodbType}`, { useUnifiedTopology: true }, (err, mongod
       log('info', 'View Logic Handler: React');
       log('info', 'View Styles Handler: Emotion');
       log('info', 'View Template Engine: JSX');
+      log('info', 'Server Type: NodeJS Express');
       log('info', 'Database: MongoDB');
       log('info', 'HTTP Requests Logs: Morgan');
       log('info', 'App Logs: Chalk');
+      log('info', 'Author: gemanepa.com');
       log('header', 'ENDPOINTS', true);
       log('info', 'GET  | /');
       log('info', 'GET  | /candidates');

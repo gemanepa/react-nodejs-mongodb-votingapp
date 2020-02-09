@@ -11,6 +11,7 @@ ul.topnav {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    height: 4.5vh;
   }
   
   ul.topnav li {float: left; cursor: pointer;}
@@ -19,8 +20,12 @@ ul.topnav {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    height: 100%;
     text-decoration: none;
+  }
+
+  ul.topnav li:not(.right) a {
+    padding: 14px 16px;
   }
   
   ul.topnav li a:hover:not(.active) {background-color: #111;}
@@ -29,10 +34,22 @@ ul.topnav {
   
   ul.topnav li.right {float: right;}
   
-  @media screen and (max-width: 600px) {
-    ul.topnav li.right, 
-    ul.topnav li {float: none;}
+  .right a img {
+    height: 4.5vh;
+    width: auto;
   }
+
+
+  @media screen and (max-width: 600px) {
+    ul.topnav {
+      height: 45px;
+    }
+    .right a img {
+      height: 45px;
+      width: auto;
+    }
+  }
+
 `;
 
 export default function Navbar(props) {
@@ -45,7 +62,11 @@ export default function Navbar(props) {
         <li><a className={activePage === navpages[0] ? 'active' : 'inactive'} onClick={() => setPage('home')} role="button" tabIndex={0}>Home</a></li>
         <li><a className={activePage === navpages[1] ? 'active' : 'inactive'} onClick={() => setPage('voterdata')} role="button" tabIndex={0}>Votar</a></li>
         <li><a className={activePage === navpages[2] ? 'active' : 'inactive'} onClick={() => setPage('statistics')} role="button" tabIndex={0}>Estadisticas</a></li>
-        <li className="right"><a>gemanepa</a></li>
+        <li className="right">
+          <a href="https://gemanepa.com">
+            <img src="./images/gemanepalogo.png" alt="" />
+          </a>
+        </li>
       </ul>
     </nav>
   );

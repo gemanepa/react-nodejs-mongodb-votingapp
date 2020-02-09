@@ -132,33 +132,33 @@ export default function Form(props) {
       <label htmlFor="firstName">
         Nombre
         <br />
-        <input name="firstName" id="firstName" type="text" ref={register({ required: true, pattern: /^[A-Za-z ]+$/i, minLength: 3 })} onClick={() => submitdDisabled.firstName && setSubmitdDisabled({ ...submitdDisabled, firstName: false })} />
+        <input name="firstName" id="firstName" type="text" ref={register({ required: true, pattern: /^[A-Za-z ]+$/i, minLength: 3 })} onFocus={() => submitdDisabled.firstName && setSubmitdDisabled({ ...submitdDisabled, firstName: false })} />
         {validationHandler(errors.firstName)}
       </label>
 
       <label htmlFor="lastName">
         Apellido
         <br />
-        <input name="lastName" id="lastName" type="text" ref={register({ required: true, pattern: /^[A-Za-z ]+$/i, min: 3 })} onClick={() => submitdDisabled.lastName && setSubmitdDisabled({ ...submitdDisabled, lastName: false })} />
+        <input name="lastName" id="lastName" type="text" ref={register({ required: true, pattern: /^[A-Za-z ]+$/i, min: 3 })} onFocus={() => submitdDisabled.lastName && setSubmitdDisabled({ ...submitdDisabled, lastName: false })} />
         {validationHandler(errors.lastName)}
       </label>
 
       <label htmlFor="dni">
         DNI
         <br />
-        <input name="dni" type="number" id="dni" ref={register({ required: true, min: 10000000, max: 50000000 })} onClick={() => submitdDisabled.dni && setSubmitdDisabled({ ...submitdDisabled, dni: false })} />
+        <input name="dni" type="number" id="dni" ref={register({ required: true, min: 10000000, max: 50000000 })} onFocus={() => submitdDisabled.dni && setSubmitdDisabled({ ...submitdDisabled, dni: false })} />
         {validationHandler(errors.dni)}
       </label>
 
       <p>Genero</p>
       <div className="radioInputs">
         <label htmlFor="radio-male">
-          <input name="gender" type="radio" value="male" id="radio-male" ref={register({ required: true })} onClick={() => submitdDisabled.gender && setSubmitdDisabled({ ...submitdDisabled, gender: false })} />
+          <input name="gender" type="radio" value="male" id="radio-male" ref={register({ required: true })} onFocus={() => submitdDisabled.gender && setSubmitdDisabled({ ...submitdDisabled, gender: false })} />
           <p>Hombre</p>
         </label>
 
         <label htmlFor="radio-female">
-          <input name="gender" type="radio" value="female" id="radio-female" ref={register({ required: true })} onClick={() => submitdDisabled.gender && setSubmitdDisabled({ ...submitdDisabled, gender: false })} />
+          <input name="gender" type="radio" value="female" id="radio-female" ref={register({ required: true })} onFocus={() => submitdDisabled.gender && setSubmitdDisabled({ ...submitdDisabled, gender: false })} />
           <p>Mujer</p>
         </label>
       </div>

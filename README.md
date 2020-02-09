@@ -33,14 +33,14 @@
 
 -  `npm run install` installs application modules
 
-  
 
--  `npm run mongodb` runs database
+-  `npm run start` runs server with mongodb cloud connection
 
-  
 
--  `npm run server` runs application
+-  `npm run mongodb` runs a local mongodb instance instead of cloud
 
+
+-  `npm run dblocalconnect` runs a server which connects to a local mongodb instance instead of mongodb cloud 
   
 
 -  `npm run lint` remarks code outside of app's codestyle
