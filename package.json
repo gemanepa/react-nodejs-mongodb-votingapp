@@ -1,13 +1,14 @@
 {
   "name": "utn-dw-votacion",
-  "author": "gabriel-ernesto-martinez-canepa",
+  "author": "gemanepa",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "lint": "eslint routes/**/*.js && eslint utils/**/*.js && eslint views/**/*.jsx && eslint db/setCandidates.js && eslint index.js",
     "mongodb": "mongod --dbpath=./db/data --port 27017",
-    "server": "node index.js"
+    "server": "MONGODB=LOCAL node index.js",
+    "start": "MONGODB=CLOUD node index.js"
   },
   "license": "ISC",
   "dependencies": {

@@ -12,7 +12,7 @@ export default class extends Document {
         <Head>
           <meta charSet="utf-8" />
           <title>Votacion - UTN DW</title>
-          <meta name="author" content="Gabriel Ernesto Martínez Cánepa" />
+          <meta name="author" content="gemanepa" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link rel="shortcut icon" href="/images/head-icon.ico" />
         </Head>

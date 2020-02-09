@@ -11,14 +11,38 @@ export default function Home(props) {
   const mainCSS = css`
   display: flex;
   justify-content: center;
+  flex-direction: column;
   margin: 0 auto;
   height: 100%;
   overflow: hidden;
+  div {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    img {
+      height: auto;
+    }
+  }
+
   @media (max-width: 1199px) {
-    padding-top: 40vh;
+    padding-top: 12vh;
+    div {
+      margin-bottom: 15vh;
+      img {
+        width: 95%;
+      }
+    }
   }
   @media (min-width: 1200px) {
-    padding-top: 30%;
+    padding-top: 3%;
+    div {
+      margin-bottom: 13%;
+      img {
+        width: 972px;
+      }
+    }
   }
   `;
 
@@ -33,6 +57,9 @@ export default function Home(props) {
   return (
     <Layout navbar="home" setPage={setPage}>
       <main className={mainCSS}>
+        <div>
+          <img src="./images/mern.png" alt="" />
+        </div>
         <Button className={flipInX} text="Iniciar" click={setPage} nonDefaultCss={buttonCSS} />
       </main>
     </Layout>

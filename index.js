@@ -32,8 +32,12 @@ app.use(cors());
 app.use(httpLogger('dev'));
 app.use(express.static('public'));
 
+const mongodbType = process.env.MONGODB === 'LOCAL'
+  ? 'mongodb://localhost:27017/utn-dw-votacion'
+  : 'mongodb+srv://gemanepa:publicpassword@cluster0-dbvga.gcp.mongodb.net/test?retryWrites=true&w=majority';
+
 log('info', 'Connecting application with MongoDB...');
-MongoClient.connect('mongodb://localhost:27017/utn-dw-votacion', { useUnifiedTopology: true }, (err, mongodb) => {
+MongoClient.connect(`${mongodbType}`, { useUnifiedTopology: true }, (err, mongodb) => {
   assert.equal(null, err);
   const db = mongodb.db('election');
   setCandidates(db);
