@@ -93,7 +93,7 @@ export default function Chart(props) {
             <h4 className="votes">
               {candidate.votes}
               {' ('}
-              {((candidate.votes * 100) / totalVotes).toFixed(1)}
+              {!isNaN(((candidate.votes * 100) / totalVotes).toFixed(1)) ? ((candidate.votes * 100) / totalVotes).toFixed(1) : 0}
             %)
             </h4>
           </div>
