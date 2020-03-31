@@ -42,6 +42,7 @@
 
 -  `npm run dblocalconnect` runs a server which connects to a local mongodb instance instead of mongodb cloud 
   
+-  `npm run killmongo` forcefully stops a running local mongodb instance
 
 -  `npm run lint` remarks code outside of app's codestyle
 
@@ -51,4 +52,4 @@
 
 ## Running issues fixes
 
-MongoDB: "*Failed to set up listener: SocketException: Address already in use*" -> sudo pkill -f mongod
+MongoDB: "*Failed to set up listener: SocketException: Address already in use*" -> npm run killmongo
