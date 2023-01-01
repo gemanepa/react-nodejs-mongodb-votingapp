@@ -46,7 +46,7 @@ MongoClient.connect(`${mongodbType}`, { useUnifiedTopology: true }, (err, mongod
   (async () => {
     log('info', 'Setting routes and view template...');
     // register `.jsx` or `.tsx` as a view template engine
-    register(app);
+    await register(app);
 
     app.use('/', viewsRouter);
 
