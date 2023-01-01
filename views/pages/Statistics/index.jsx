@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
+import styled from '@emotion/styled';
 import Layout from '../../shared-ui/Layout';
 import getCandidatesDbData from '../../requests/getCandidates';
 import Chart from './Chart';
 import fadeIn from '../../shared-ui/animations';
 
-const mainCSS = css`
+const StyledMain = styled.main`
   display: block;
   margin: 0 auto;
   width: 50%;
@@ -30,7 +30,8 @@ const mainCSS = css`
   @media (min-width: 1200px) {
     width: 80%;
     margin-top: 5%;
-  }
+  };
+  ${fadeIn};
 `;
 
 export default function Statistics(props) {
@@ -48,10 +49,10 @@ export default function Statistics(props) {
 
   return (
     <Layout navbar="statistics" setPage={setPage}>
-      <main className={[mainCSS, fadeIn].join(' ')}>
+      <StyledMain>
         <h1>Estadisticas</h1>
         {candidates && <Chart candidates={candidates} />}
-      </main>
+      </StyledMain>
     </Layout>
   );
 }

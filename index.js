@@ -46,7 +46,7 @@ MongoClient.connect(`${mongodbType}`, { useUnifiedTopology: true }, (err, mongod
   (async () => {
     log('info', 'Setting routes and view template...');
     // register `.jsx` or `.tsx` as a view template engine
-    await register(app);
+    register(app);
 
     app.use('/', viewsRouter);
 
@@ -66,8 +66,9 @@ MongoClient.connect(`${mongodbType}`, { useUnifiedTopology: true }, (err, mongod
     }, voteRouter);
     log('info', 'Done.');
 
-    app.listen(3000, () => {
-      log('header', `RUNNING APPLICATION ON PORT ${process.env.PORT || 3000}`, true);
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+      log('header', `RUNNING APPLICATION ON PORT ${PORT}`, true);
       log('info', 'View Logic Handler: React');
       log('info', 'View Styles Handler: Emotion');
       log('info', 'View Template Engine: JSX');

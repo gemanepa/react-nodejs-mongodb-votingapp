@@ -2,24 +2,31 @@
   "name": "react-nodejs-mongodb-votingapp",
   "author": "gemanepa",
   "version": "1.0.0",
+  "engines": {
+    "npm": "8.19.3",
+    "node": "18.13.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
     "lint": "eslint routes/**/*.js && eslint utils/**/*.js && eslint views/**/*.jsx && eslint db/setCandidates.js && eslint index.js",
     "mongodb": "mongod --dbpath=./db/data --port 27017",
-    "localdb": "MONGODB=LOCAL node index.js",
+    "localdb": "MONGODB=LOCAL node --openssl-legacy-provider index.js",
     "killmongo": "sudo pkill -f mongod",
-    "start": "MONGODB=CLOUD node index.js"
+    "start": "MONGODB=CLOUD node --openssl-legacy-provider index.js"
   },
-  "license": "ISC",
   "dependencies": {
-    "@react-ssr/core": "^0.22.0",
-    "@react-ssr/express": "^0.22.0",
+    "@babel/runtime": "^7.20.7",
+    "@emotion/cache": "^10.0.29",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@react-ssr/core": "latest",
+    "@react-ssr/express": "latest",
     "assert": "^2.0.0",
     "chalk": "^4.0.0",
     "cors": "^2.8.5",
+    "create-emotion-server": "^10.0.27",
     "death": "^1.1.0",
-    "emotion": "^10.0.27",
     "express": "^4.17.1",
     "mongodb": "^3.5.7",
     "morgan": "^1.10.0",
@@ -29,6 +36,7 @@
     "react-hook-form": "^5.6.1"
   },
   "devDependencies": {
+    "babel-plugin-emotion": "^10.0.33",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-plugin-import": "^2.20.2",
