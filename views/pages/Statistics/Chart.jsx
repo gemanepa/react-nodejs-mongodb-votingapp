@@ -49,7 +49,6 @@ const chartCSS = css`
         overflow: hidden;
         text-align: center;
         font-size: 30px;
-        margin-top: -35px;
 
       }
 
