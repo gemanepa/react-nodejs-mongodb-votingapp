@@ -2,6 +2,10 @@
   "name": "react-nodejs-mongodb-votingapp",
   "author": "gemanepa",
   "version": "1.0.0",
+  "engines" : { 
+    "npm" : "6.13.6",
+    "node" : "13.7.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
