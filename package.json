@@ -2,9 +2,9 @@
   "name": "react-nodejs-mongodb-votingapp",
   "author": "gemanepa",
   "version": "1.0.0",
-  "engines" : { 
-    "npm" : "6.13.6",
-    "node" : "13.7.0"
+  "engines": {
+    "npm": "6.13.6",
+    "node": "13.7.0"
   },
   "description": "",
   "main": "index.js",
@@ -17,11 +17,15 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@emotion/cache": "^10.0.29",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "@react-ssr/core": "^0.22.0",
     "@react-ssr/express": "^0.22.0",
     "assert": "^2.0.0",
     "chalk": "^4.0.0",
     "cors": "^2.8.5",
+    "create-emotion-server": "^10.0.27",
     "death": "^1.1.0",
     "emotion": "^10.0.27",
     "express": "^4.17.1",
