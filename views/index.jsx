@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Home from './pages/Home';
 import VoterData from './pages/VoterData';
 import Candidates from './pages/Candidates';
 import Statistics from './pages/Statistics';
 
 export default function Index() {
-  const [page, setPage] = useState('home');
+  const [page, setPage] = useState('');
   const [voterData, setVoterData] = useState({
     firstName: '',
     lastName: '',
@@ -23,6 +23,10 @@ export default function Index() {
     return pages[page];
   }
 
+  useEffect(() => {
+    setPage('home');
+  }, []);
+  if (!page) return null;
   return (
     <>
       {renderPage()}
