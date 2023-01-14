@@ -46,7 +46,7 @@ padding-top: 6%;
 div {
   margin-bottom: 13%;
   img {
-    width: 972px;
+    width: 50vw;
   }
 }
 }
