@@ -35,7 +35,7 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-  nonDefaultCss: PropTypes.string,
+  nonDefaultCss: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   text: PropTypes.string.isRequired,
   click: PropTypes.func.isRequired
 };
