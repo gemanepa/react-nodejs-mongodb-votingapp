@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
+import styled from '@emotion/styled';
 import Layout from '../../shared-ui/Layout';
 import Snackbar from '../../shared-ui/Snackbar';
 import List from './List';
@@ -9,31 +9,31 @@ import postVoterDbData from '../../requests/postVote';
 import getCandidatesDbData from '../../requests/getCandidates';
 import fadeIn from '../../shared-ui/animations';
 
-const mainCSS = css`
-display: block;
-margin: 0 auto;
-min-height: 100%;
-height: auto;
-border-radius: 5px;
-background-color: #f2f2f2;
-padding: 20px;
-margin-top: 1.5vh;
-animation-name: fadeIn;
-animation-duration: 0.5s;
-@media (max-width: 1199px) {
-  width: 80%;
-  margin-top: 30px;
-  margin-bottom: 50px;
-  h1 {
-    text-align: center;
+const StyledMain = styled.main`
+  display: block;
+  margin: 0 auto;
+  min-height: 100%;
+  height: auto;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-top: 1.5vh;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  @media (max-width: 1199px) {
+    width: 80%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    h1 {
+      text-align: center;
+    }
   }
-}
-@media (min-width: 1200px) {
-  width: 90%;
-  margin-top: 5%;
-}
+  @media (min-width: 1200px) {
+    width: 90%;
+    margin-top: 5%;
+  };
+  ${fadeIn}
 `;
-
 
 export default function Candidates(props) {
   const { setPage, voterData } = props;
@@ -50,7 +50,6 @@ export default function Candidates(props) {
   useEffect(() => {
     fetchCandidates();
   }, []);
-
 
   function onCandidateSelect(selectedCandidate) {
     if (typeof window !== 'undefined') {
@@ -74,10 +73,9 @@ export default function Candidates(props) {
     }, 2500);
   }
 
-
   return (
     <Layout navbar="votar" setPage={setPage}>
-      <main className={[mainCSS, fadeIn].join(' ')}>
+      <StyledMain>
 
         {candidates
           ? (
@@ -98,7 +96,7 @@ export default function Candidates(props) {
 
         {snackbar === true && <Snackbar text="Voto realizado con exito" />}
         {snackbar === false && <Snackbar text="Voto no realizado" />}
-      </main>
+      </StyledMain>
     </Layout>
   );
 }

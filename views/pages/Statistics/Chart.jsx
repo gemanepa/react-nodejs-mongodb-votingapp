@@ -1,74 +1,74 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
+import styled from '@emotion/styled';
 
-const chartCSS = css`
+const StyledChart = styled.section`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+  width: 100%;
+
+  article {
+    margin: 20px 0px;
+    width: 40%;
+    overflow: hidden;
     display: flex;
-    justify-content: space-around;
     flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0 auto;
+  }
+
+  h4 {
+    padding: 0;
+    margin: 0;
+  }
+
+  img {
+    min-width: 100px;
+    min-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    border-radius: 5px;
+  }
+
+  .datacontainer {
     height: 100%;
-    position: relative;
-    width: 100%;
+    max-width: 300px;
+    margin-left: 25px;
+    .bar {
+      width: 100%;
+      min-width: 300px;
+      height: 35px;
+      margin-top: 10px;
+    }
 
-    article {
-      margin: 20px 0px;
-      width: 40%;
+    .votes {
+      width: 100%;
       overflow: hidden;
-      display: flex;
-      flex-direction: row;
+      text-align: center;
+      font-size: 30px;
+
     }
 
-    h4 {
-      padding: 0;
-      margin: 0;
-    }
+    h4.name {
+      font-size: 200%;
+    };
+    h4.house {
+        font-style: italic;
+    };
+  }
 
-    img {
-      min-width: 100px;
-      min-height: 100px;
-      max-width: 100px;
-      max-height: 100px;
-      border-radius: 5px;
-    }
-    
-    .datacontainer {
-      height: 100%;
-      max-width: 300px;
-      margin-left: 25px;
-      .bar {
-        width: 100%;
-        min-width: 300px;
-        height: 35px;
-        margin-top: 10px;
-      }
-
-      .votes {
-        width: 100%;
-        overflow: hidden;
-        text-align: center;
-        font-size: 30px;
-
-      }
-
-      h4.name {
-        font-size: 200%;
-      };
-      h4.house {
-          font-style: italic;
-      };
-    }
-
-    @media screen and (max-width: 1199px) {
-      flex-direction: column;
-      article {
-        width: 100%;
-        .datacontainer {
-          width: 62%;
-        }
+  @media screen and (max-width: 1199px) {
+    flex-direction: column;
+    article {
+      width: 100%;
+      .datacontainer {
+        width: 62%;
       }
     }
+  }
 `;
 
 export default function Chart(props) {
@@ -80,7 +80,7 @@ export default function Chart(props) {
   });
 
   return (
-    <section className={chartCSS}>
+    <StyledChart>
       {sortedCandidates.map((candidate) => (
         <article key={candidate.name}>
           <img src={`./images/candidate-${candidate.img}.jpg`} alt="" />
@@ -99,7 +99,7 @@ export default function Chart(props) {
 
         </article>
       ))}
-    </section>
+    </StyledChart>
   );
 }
 

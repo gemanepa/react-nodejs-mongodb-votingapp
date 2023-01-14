@@ -16,7 +16,7 @@ export default class extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <link rel="shortcut icon" href="/images/head-icon.ico" />
         </Head>
-        <body style={{margin: 0 }}>
+        <body style={{ margin: 0 }}>
           <Main />
         </body>
       </html>

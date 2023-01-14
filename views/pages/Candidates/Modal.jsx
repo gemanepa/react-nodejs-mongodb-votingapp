@@ -1,102 +1,102 @@
 import React from 'react';
-import { css } from 'emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import PropTypes from 'prop-types';
 import Button from '../../shared-ui/Button';
 import zoomIn from '../../shared-ui/animations';
 
-const modalCSS = css`
-position: absolute;
-background:rgba(128,128,128,0.9);
-width: 100vw;
-height: ${typeof document !== 'undefined' ? `${document.body.clientHeight}px` : '100vh'};
-top: 0;
-left: 0;
-overflow: hidden;
-.dialog {
-    height: auto;
-    margin: 2.5% auto;
-    border-radius: 5px;
-    background-color: white;
-    padding: 5px 35px 35px 35px;
-    border-radius: 5px;
-    animation-name: zoomIn;
-    animation-duration: 0.5s;
-    h1 {
-        text-align: center;
-    }
-
-    h2 {
-        margin-bottom: 0px;
-        text-decoration: underline;
-    }
-
-    .buttons {
-        margin-top: 5%;
-    }
-
-    .flex {
-        display: flex;
-        width: 100%;
-    }
-
-    img {
-        width: 100px;
-        height: 100px;
-        display: block;
-        margin: auto;
-        margin-top: 10px;
-        border-radius: 5px;
-    }
-}
-@media (max-width: 1199px) {
-  .dialog {
-    width: 75%;
-    h3 {
-      margin-bottom: 0px;
-    }
-    .flex {
-      flex-direction: column;
-    }
-    .flex.buttons {
-      flex-direction: column-reverse;
-    }
-  }
-
-}
-@media (min-width: 1200px) {
-  .dialog {
-    width: 50vw;
-
-    .flex {
-      flex-direction: row;
-      justify-content: space-around;
-    }
-  }
-}
-`;
-
 const cancelButtonCSS = css`
-height: 50px;
-
-background-color: red;
-@media (min-width: 1200px) {
-  max-width: 40%;
-}
-@media (max-width: 1199px) {
-  margin-bottom: 10px;
-  min-width: 80%;
-}
+  height: 50px;
+  background-color: red;
+  @media (min-width: 1200px) {
+    max-width: 40%;
+  }
+  @media (max-width: 1199px) {
+    margin-bottom: 10px;
+    min-width: 80%;
+  }
 `;
 
 const confirmButtonCSS = css`
-height: 50px;
-background-color: green;
-@media (min-width: 1200px) {
-  max-width: 40%;
-}
-@media (max-width: 1199px) {
-  min-width: 80%;
-}
+  height: 50px;
+  background-color: green;
+  @media (min-width: 1200px) {
+    max-width: 40%;
+  }
+  @media (max-width: 1199px) {
+    min-width: 80%;
+  }
+`;
+
+const StyledModal = styled.div`
+  position: absolute;
+  background:rgba(128,128,128,0.9);
+  width: 100vw;
+  height: ${typeof document !== 'undefined' ? `${document.body.clientHeight}px` : '100vh'};
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  .dialog {
+      height: auto;
+      margin: 2.5% auto;
+      border-radius: 5px;
+      background-color: white;
+      padding: 5px 35px 35px 35px;
+      border-radius: 5px;
+      animation-name: zoomIn;
+      animation-duration: 0.5s;
+      h1 {
+          text-align: center;
+      }
+
+      h2 {
+          margin-bottom: 0px;
+          text-decoration: underline;
+      }
+
+      .buttons {
+          margin-top: 5%;
+      }
+
+      .flex {
+          display: flex;
+          width: 100%;
+      }
+
+      img {
+          width: 100px;
+          height: 100px;
+          display: block;
+          margin: auto;
+          margin-top: 10px;
+          border-radius: 5px;
+      }
+  }
+  @media (max-width: 1199px) {
+    .dialog {
+      width: 75%;
+      h3 {
+        margin-bottom: 0px;
+      }
+      .flex {
+        flex-direction: column;
+      }
+      .flex.buttons {
+        flex-direction: column-reverse;
+      }
+    }
+
+  }
+  @media (min-width: 1200px) {
+    .dialog {
+      width: 50vw;
+
+      .flex {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
+  }
 `;
 
 export default function Modal(props) {
@@ -104,7 +104,7 @@ export default function Modal(props) {
   const { voterData: voter, selectedCandidate: candidate } = data;
 
   return (
-    <div className={modalCSS}>
+    <StyledModal>
       <div className={[zoomIn, 'dialog'].join(' ')}>
         <h1>Confirmar datos</h1>
         <h2>Votante</h2>
@@ -153,7 +153,7 @@ export default function Modal(props) {
         </div>
 
       </div>
-    </div>
+    </StyledModal>
   );
 }
 

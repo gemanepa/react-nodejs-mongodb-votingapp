@@ -1,96 +1,95 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
 import { useForm } from 'react-hook-form';
-import { css } from 'emotion';
 
-const formCSS = css`
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
 
-    label {
-        width: 100%;
+  label {
+      width: 100%;
+  }
+
+  input[type=text], input[type=number] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
     }
 
-    input[type=text], input[type=number] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
-    
-    input[type=radio] {
-        width: 25px;
-        height: 25px;
+  input[type=radio] {
+      width: 25px;
+      height: 25px;
+  }
+
+  input[type=submit] {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
-    
+
     input[type=submit] {
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      input[type=submit] {
-        width: 100%;
-        background-color: #4CAF50;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      
-      input[type=submit]:hover {
-        background-color: #45a049;
-      }
-
-      input[type=submit][disabled], input[type=submit][disabled]:hover {
-        background-color: gray;
-        cursor: default
-      }
-
-
-
-    p {
-        margin-top: 0;
-        margin-bottom: 0;
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #45a049;
     }
 
-    .radioInputs {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        label {
-            display: flex;
-            flex-direction: row;
-            width: 35%;
-            p {
-                margin-top: 7px;
-                margin-left: 5px;
-            }
-        }
+    input[type=submit][disabled], input[type=submit][disabled]:hover {
+      background-color: gray;
+      cursor: default
     }
 
-    .validation {
-        height: 30px;
-        width: 100%;
-        max-height: 30px;
-        overflow: hidden;
-        color: red;
-    }
+
+
+  p {
+      margin-top: 0;
+      margin-bottom: 0;
+  }
+
+  .radioInputs {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      label {
+          display: flex;
+          flex-direction: row;
+          width: 35%;
+          p {
+              margin-top: 7px;
+              margin-left: 5px;
+          }
+      }
+  }
+
+  .validation {
+      height: 30px;
+      width: 100%;
+      max-height: 30px;
+      overflow: hidden;
+      color: red;
+  }
 `;
-
 
 function validationHandler(error) {
   let message = <div className="validation" />;
@@ -127,7 +126,7 @@ export default function Form(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={formCSS}>
+    <StyledForm onSubmit={handleSubmit(onSubmit)}>
 
       <label htmlFor="firstName">
         Nombre
@@ -165,7 +164,7 @@ export default function Form(props) {
       {validationHandler(errors.gender)}
 
       <input type="submit" disabled={!((!submitdDisabled.firstName && !submitdDisabled.lastName && !submitdDisabled.dni && !submitdDisabled.gender))} />
-    </form>
+    </StyledForm>
   );
 }
 

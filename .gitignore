@@ -106,3 +106,6 @@ dist
 #mongodb
 db/data/*
 !db/data/.gitkeep 
+
+#MacOS
+.DS_Store

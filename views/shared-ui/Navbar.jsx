@@ -2,9 +2,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
+import styled from '@emotion/styled';
 
-const navbarCSS = css`
+const StyledNav = styled.nav`
 ul.topnav {
     list-style-type: none;
     margin: 0;
@@ -49,7 +49,6 @@ ul.topnav {
       width: auto;
     }
   }
-
 `;
 
 export default function Navbar(props) {
@@ -57,7 +56,7 @@ export default function Navbar(props) {
   const navpages = ['home', 'votar', 'statistics'];
 
   return (
-    <nav className={navbarCSS}>
+    <StyledNav>
       <ul className="topnav">
         <li><a className={activePage === navpages[0] ? 'active' : 'inactive'} onClick={() => setPage('home')} role="button" tabIndex={0}>Home</a></li>
         <li><a className={activePage === navpages[1] ? 'active' : 'inactive'} onClick={() => setPage('voterdata')} role="button" tabIndex={0}>Votar</a></li>
@@ -68,7 +67,7 @@ export default function Navbar(props) {
           </a>
         </li>
       </ul>
-    </nav>
+    </StyledNav>
   );
 }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
+import styled from '@emotion/styled';
 
-const snackbarCSS = css`
+const StyledSnackbar = styled.div`
 #snackbar {
     visibility: hidden;
     min-width: 250px;
@@ -50,9 +50,9 @@ export default function Snackbar(props) {
   const { text } = props;
 
   return (
-    <div className={snackbarCSS}>
+    <StyledSnackbar>
       <div id="snackbar" className="show">{text}</div>
-    </div>
+    </StyledSnackbar>
   );
 }
 

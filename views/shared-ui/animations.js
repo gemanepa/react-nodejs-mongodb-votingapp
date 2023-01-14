@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 export const flipInX = css`
 @keyframes flipInX {

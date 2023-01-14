@@ -1,35 +1,35 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
+import styled from '@emotion/styled';
 import Layout from '../../shared-ui/Layout';
 import Form from './Form';
 import Snackbar from '../../shared-ui/Snackbar';
 import getVoterDbData from '../../requests/getVoter';
 import fadeIn from '../../shared-ui/animations';
 
-const mainCSS = css`
-display: block;
-margin: 0 auto;
-width: 50%;
-min-height: 100%;
-height: auto;
-border-radius: 5px;
-background-color: #f2f2f2;
-padding: 20px;
-margin-top: 1.5vh;
-animation-name: fadeIn;
-animation-duration: 0.5s;
-@media (max-width: 1199px) {
-  width: 80%;
-  margin-top: 30px;
-  margin-bottom: 50px;
-}
-@media (min-width: 1200px) {
+const StyledMain = styled.main`
+  display: block;
+  margin: 0 auto;
   width: 50%;
-  margin-top: 5%;
-}
+  min-height: 100%;
+  height: auto;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin-top: 1.5vh;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+  @media (max-width: 1199px) {
+    width: 80%;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  @media (min-width: 1200px) {
+    width: 50%;
+    margin-top: 5%;
+  }
+  ${fadeIn};
 `;
-
 
 export default function VoterData(props) {
   const { setPage, setVoterData } = props;
@@ -49,11 +49,11 @@ export default function VoterData(props) {
 
   return (
     <Layout navbar="votar" setPage={setPage}>
-      <main className={[mainCSS, fadeIn].join(' ')}>
+      <StyledMain>
         <h1>Datos del votante</h1>
         <Form validateVoterData={validateVoterData} />
         {alreadyVoted && <Snackbar text="Este votante ya voto" />}
-      </main>
+      </StyledMain>
     </Layout>
   );
 }

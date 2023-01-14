@@ -1,11 +1,11 @@
 import React from 'react';
-import { css } from 'emotion';
+import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
 export default function Button(props) {
   const { nonDefaultCss, text, click } = props;
 
-  const buttonCSS = css`
+  const StyledButton = styled.button`
     border-radius: 4px;
     cursor: pointer;
     color: white;
@@ -26,7 +26,7 @@ export default function Button(props) {
     `;
 
   return (
-    <button type="button" className={buttonCSS} onClick={() => click('voterdata')}>{text}</button>
+    <StyledButton type="button" onClick={() => click('voterdata')}>{text}</StyledButton>
   );
 }
 

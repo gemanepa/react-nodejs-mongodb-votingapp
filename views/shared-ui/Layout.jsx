@@ -1,9 +1,9 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import { css } from 'emotion';
 import NavBar from './Navbar';
 
-const bodyCSS = css`
+const StyledBody = styled.div`
   min-width: 100%;
   max-width: 100%;
   min-height: 100vh;
@@ -23,10 +23,10 @@ export default function Layout(props) {
     children, navbar, setPage
   } = props;
   return (
-    <div className={bodyCSS}>
+    <StyledBody>
       <NavBar activePage={navbar} setPage={setPage} />
       { children }
-    </div>
+    </StyledBody>
   );
 }
 
