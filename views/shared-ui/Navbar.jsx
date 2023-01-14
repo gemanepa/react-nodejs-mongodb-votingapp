@@ -5,16 +5,21 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 const StyledNav = styled.nav`
-ul.topnav {
+  ul.topnav {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
     background-color: #333;
     height: 4.5vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
   
-  ul.topnav li {float: left; cursor: pointer;}
+  ul.topnav li {
+    cursor: pointer;
+  }
   
   ul.topnav li a {
     display: block;
@@ -32,10 +37,11 @@ ul.topnav {
   
   ul.topnav li a.active {background-color: #4CAF50;}
   
-  ul.topnav li.right {float: right;}
+  ul.topnav li.right { margin-left: auto;}
   
   .right a img {
     height: 4.5vh;
+    margin-top: 0.5vh;
     width: auto;
   }
 
